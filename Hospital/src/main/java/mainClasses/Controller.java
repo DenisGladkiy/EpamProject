@@ -1,0 +1,95 @@
+package mainClasses;
+
+import utils.PatientComparator;
+import utils.Storage;
+
+import java.util.Arrays;
+
+/**
+ * Created by Denis on 01.03.2018.
+ */
+public class Controller {
+
+    private Patient[] patients;
+    private Patient[] requestedPatients;
+    private UserInterface userInterface;
+
+    public Controller(UserInterface userInterface){
+        this.userInterface = userInterface;
+        patients = Storage.getPatients();
+        requestedPatients = new Patient[patients.length];
+    }
+
+    public String handle(String request){
+        switch (request){
+            case "0" : {
+                return Arrays.toString(patients);
+            }
+            case "1" : {
+                String illness = userInterface.askIllness();
+                return selectByIllness(illness);
+            }
+            case "2" : {
+                int[] numbers = userInterface.askNumbers();
+                if(isInRange(numbers)) {
+                    return selectByNumber(numbers[0], numbers[1]);
+                }else{
+                    return "Запрошенные номера за пределами доступного диапазона";
+                }
+            }
+            case "3" : {
+                return sortArray();
+            }
+            default:{
+                System.out.println("Неизвестный запрос");
+            }
+        }
+        return "";
+    }
+
+    private String selectByIllness(String illness){
+        Arrays.fill(requestedPatients, null);
+        int arrIndex = 0;
+        for(Patient p : patients){
+            if(p.getIllness().equalsIgnoreCase(illness)){
+                requestedPatients[arrIndex] = p;
+                arrIndex++;
+            }
+        }
+        if(null != requestedPatients[0]) {
+            return Arrays.toString(Arrays.copyOf(requestedPatients, arrIndex));
+        }else{
+            return "Нет пациентов с таким диагнозом";
+        }
+    }
+
+    private String selectByNumber(int from, int to){
+        Arrays.fill(requestedPatients, null);
+        int arrIndex = 0;
+        for(Patient p : patients){
+            int pNumber = p.getNumber();
+            if(pNumber >= (from) && pNumber <= to){
+                requestedPatients[arrIndex] = p;
+                arrIndex++;
+            }
+        }
+        return Arrays.toString(Arrays.copyOf(requestedPatients,arrIndex));
+    }
+
+    private String sortArray(){
+        requestedPatients = Arrays.copyOf(patients, patients.length);
+        Arrays.sort(requestedPatients, new PatientComparator());
+        return Arrays.toString(requestedPatients);
+    }
+
+    private boolean isInRange(int[] numbers){
+        if((numbers[0] >= 1) && (numbers[0] <= patients.length-1)){
+            if((numbers[1] >= 1) && (numbers[1] <= patients.length-1)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+}
