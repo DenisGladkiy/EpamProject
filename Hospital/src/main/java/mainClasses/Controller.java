@@ -83,8 +83,10 @@ public class Controller {
     }
 
     private boolean isInRange(int[] numbers){
-        if((numbers[0] >= 1) && (numbers[0] <= patients.length-1)){
-            if((numbers[1] >= 1) && (numbers[1] <= patients.length-1)){
+        int num1 = numbers[0];
+        int num2 = numbers[1];
+        if((num1 >= 1) && (num1 <= patients.length-1)){
+            if((num2 >= 1) && (num2 <= patients.length-1)){
                 return true;
             }
         }

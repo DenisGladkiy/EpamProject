@@ -41,8 +41,14 @@ public class UserInterface {
             numbers[0] = -1;
             return numbers;
         }
-        numbers[0] = Integer.parseInt(stringNumbers[0]);
-        numbers[1] = Integer.parseInt(stringNumbers[1]);
+        int num1 = Integer.parseInt(stringNumbers[0]);
+        int num2 = Integer.parseInt(stringNumbers[1]);
+        if(num1 < num2) {
+            numbers[0] = num1;
+            numbers[1] = num2;
+        }else{
+            numbers[0] = -1;
+        }
         return numbers;
     }
 
