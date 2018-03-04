@@ -2,6 +2,7 @@ package utils;
 
 import mainClasses.Patient;
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Created by Denis on 01.03.2018.
@@ -22,8 +23,10 @@ public class StorageFiller {
         String[][] patientData = readFile(myFile);
         storage.initializeStorage(data.length);
         for(String[] line : patientData){
-            patient = new Patient(line);
-            storage.addPatient(patient);
+            if(null != line[0]) {
+                patient = new Patient(line);
+                storage.addPatient(patient);
+            }
         }
     }
 
@@ -41,6 +44,9 @@ public class StorageFiller {
                 data[lineNumber] = lineArr;
                 line = bufferedReader.readLine();
                 lineNumber++;
+                if(lineNumber == data.length){
+                    data = doubleArrayLength(data);
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -49,4 +55,15 @@ public class StorageFiller {
         }
         return data;
     }
+
+    private String[][] doubleArrayLength(String[][] data){
+        String[][] newData = new String[data.length *2][7];
+        for(int i=0; i < data.length; i++) {
+            for (int j = 0; j < 6; j++) {
+                newData[i][j] = data[i][j];
+            }
+        }
+        return newData;
+    }
+
 }

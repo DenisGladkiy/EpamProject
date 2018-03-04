@@ -24,12 +24,19 @@ public class Storage {
             }
         }
         patients[index] = patient;
+        if(index == patients.length - 1){
+            patients = doubleArrayLength(patients);
+        }
     }
 
     public static Patient[] getPatients(){
         return patients;
     }
 
-
+    private Patient[] doubleArrayLength(Patient[] patients){
+        Patient[] newPatients = new Patient[patients.length * 2];
+        System.arraycopy(patients, 0, newPatients, 0, patients.length);
+        return newPatients;
+    }
 
 }

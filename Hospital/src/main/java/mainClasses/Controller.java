@@ -2,6 +2,7 @@ package mainClasses;
 
 import utils.PatientComparator;
 import utils.Storage;
+import utils.Writer;
 
 import java.util.Arrays;
 
@@ -21,6 +22,7 @@ public class Controller {
     }
 
     public String handle(String request){
+        Writer writer = new Writer();
         switch (request){
             case "0" : {
                 return Arrays.toString(patients);
