@@ -59,7 +59,7 @@ public class StorageFiller {
     private String[][] doubleArrayLength(String[][] data){
         String[][] newData = new String[data.length *2][7];
         for(int i=0; i < data.length; i++) {
-            for (int j = 0; j < 6; j++) {
+            for (int j = 0; j < 7; j++) {
                 newData[i][j] = data[i][j];
             }
         }

@@ -22,10 +22,9 @@ public class Controller {
     }
 
     public String handle(String request){
-        Writer writer = new Writer();
         switch (request){
             case "0" : {
-                return Arrays.toString(patients);
+                return prepareReply(patients);
             }
             case "1" : {
                 String illness = userInterface.askIllness();
@@ -53,7 +52,7 @@ public class Controller {
         Arrays.fill(requestedPatients, null);
         int arrIndex = 0;
         for(Patient p : patients){
-            if(p.getIllness().equalsIgnoreCase(illness)){
+            if((null != p) && (p.getIllness().equalsIgnoreCase(illness))){
                 requestedPatients[arrIndex] = p;
                 arrIndex++;
             }
@@ -69,17 +68,23 @@ public class Controller {
         Arrays.fill(requestedPatients, null);
         int arrIndex = 0;
         for(Patient p : patients){
-            int pNumber = p.getNumber();
-            if(pNumber >= (from) && pNumber <= to){
-                requestedPatients[arrIndex] = p;
-                arrIndex++;
+            if(null != p) {
+                int pNumber = p.getNumber();
+                if (pNumber >= (from) && pNumber <= to) {
+                    requestedPatients[arrIndex] = p;
+                    arrIndex++;
+                }
             }
         }
         return Arrays.toString(Arrays.copyOf(requestedPatients,arrIndex));
     }
 
     private String sortArray(){
-        requestedPatients = Arrays.copyOf(patients, patients.length);
+        int index = 0;
+        while(null != patients[index]) {
+            index++;
+        }
+        requestedPatients = Arrays.copyOf(patients, index);
         Arrays.sort(requestedPatients, new PatientComparator());
         return Arrays.toString(requestedPatients);
     }
@@ -93,6 +98,16 @@ public class Controller {
             }
         }
         return false;
+    }
+
+    private String prepareReply(Patient[] patients){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Patient patient : patients){
+            if(null != patient){
+                stringBuilder.append(patient.toString());
+            }
+        }
+        return stringBuilder.toString();
     }
 
 
