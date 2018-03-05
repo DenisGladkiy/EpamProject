@@ -9,9 +9,7 @@ import utils.StorageFiller;
 public class Hospital {
 
     public static void main(String[] args) {
-        Storage storage = new Storage();
-        StorageFiller filler = new StorageFiller(storage);
-        filler.fillStorage();
+        initialize();
         showMenu();
     }
 
@@ -19,4 +17,11 @@ public class Hospital {
         UserInterface userInterface = new UserInterface();
         userInterface.makeMenu();
     }
+
+    private static void initialize(){
+        Storage storage = new Storage();
+        StorageFiller filler = new StorageFiller(storage);
+        filler.fillStorage();
+    }
+
 }
