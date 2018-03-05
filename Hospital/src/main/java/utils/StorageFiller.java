@@ -2,7 +2,6 @@ package utils;
 
 import mainClasses.Patient;
 import java.io.*;
-import java.util.Arrays;
 
 /**
  * Created by Denis on 01.03.2018.
@@ -65,5 +64,4 @@ public class StorageFiller {
         }
         return newData;
     }
-
 }

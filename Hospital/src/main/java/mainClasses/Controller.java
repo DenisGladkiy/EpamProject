@@ -2,8 +2,6 @@ package mainClasses;
 
 import utils.PatientComparator;
 import utils.Storage;
-import utils.Writer;
-
 import java.util.Arrays;
 
 /**
@@ -74,6 +72,8 @@ public class Controller {
                     requestedPatients[arrIndex] = p;
                     arrIndex++;
                 }
+            }else{
+                break;
             }
         }
         return Arrays.toString(Arrays.copyOf(requestedPatients,arrIndex));
@@ -109,6 +109,4 @@ public class Controller {
         }
         return stringBuilder.toString();
     }
-
-
 }

@@ -13,11 +13,6 @@ public class Reader {
         scanner = new Scanner(System.in);
     }
 
-
-    public int read(){
-        return scanner.nextInt();
-    }
-
     public String readString(){
         return scanner.next();
     }
