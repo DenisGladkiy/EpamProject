@@ -1,6 +1,7 @@
 package utils;
 
-import mainClasses.Patient;
+import mainClasses.model.Patient;
+import mainClasses.model.Storage;
 import java.io.*;
 
 /**
@@ -10,7 +11,6 @@ public class StorageFiller {
 
     private static final String FILE = "Hospital/src/data";
     private Storage storage;
-    private String[][] data;
 
     public StorageFiller(Storage storage){
         this.storage = storage;
@@ -20,17 +20,17 @@ public class StorageFiller {
         File myFile = new File(FILE);
         Patient patient;
         String[][] patientData = readFile(myFile);
-        storage.initializeStorage(data.length);
+        storage.initializeStorage(patientData.length);
         for(String[] line : patientData){
             if(null != line[0]) {
                 patient = new Patient(line);
                 storage.addPatient(patient);
-            }
+            }else{break;}
         }
     }
 
     private String[][] readFile(File file){
-        data = new String[10][7];
+        String[][] data = new String[10][7];
         String[] lineArr;
         String line;
         int lineNumber = 0;

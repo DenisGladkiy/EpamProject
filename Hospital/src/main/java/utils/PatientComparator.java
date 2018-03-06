@@ -1,6 +1,6 @@
 package utils;
 
-import mainClasses.Patient;
+import mainClasses.model.Patient;
 import java.util.Comparator;
 
 /**

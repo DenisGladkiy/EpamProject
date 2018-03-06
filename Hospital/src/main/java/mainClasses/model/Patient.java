@@ -1,4 +1,4 @@
-package mainClasses;
+package mainClasses.model;
 
 /**
  * Created by Denis on 01.03.2018.

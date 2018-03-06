@@ -1,12 +1,18 @@
-package mainClasses;
+package mainClasses.view;
 
+import mainClasses.controller.Controller;
 import utils.Reader;
 
 /**
  * Created by Denis on 01.03.2018.
  */
 public class UserInterface {
-    Reader reader;
+    private Reader reader;
+    private Controller controller;
+
+    public UserInterface(Controller controller){
+        this.controller = controller;
+    }
 
     public void makeMenu(){
         showAllOptions();
@@ -24,7 +30,6 @@ public class UserInterface {
     }
 
     private String handleRequest(String request){
-        Controller controller = new Controller(this);
         return controller.handle(request);
     }
 
@@ -37,17 +42,15 @@ public class UserInterface {
         System.out.println("Введите диапазон номеров в формате от-до (пример 1-5)");
         String[] stringNumbers = reader.readString().split("-");
         int[] numbers = new int[2];
-        if(stringNumbers.length != 2){
-            numbers[0] = -1;
-            return numbers;
-        }
-        int num1 = Integer.parseInt(stringNumbers[0]);
-        int num2 = Integer.parseInt(stringNumbers[1]);
-        if(num1 < num2) {
-            numbers[0] = num1;
-            numbers[1] = num2;
-        }else{
-            numbers[0] = -1;
+        if(stringNumbers.length == 2){
+            int num1 = Integer.parseInt(stringNumbers[0]);
+            int num2 = Integer.parseInt(stringNumbers[1]);
+            if(num1 < num2) {
+                numbers[0] = num1;
+                numbers[1] = num2;
+            }else {
+                numbers[0] = -1;
+            }
         }
         return numbers;
     }
