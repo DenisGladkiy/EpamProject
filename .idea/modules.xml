@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/MatrixRotate/MatrixRotate.iml" filepath="$PROJECT_DIR$/MatrixRotate/MatrixRotate.iml" />
       <module fileurl="file://$PROJECT_DIR$/PerfectNumbers/PerfectNumbers.iml" filepath="$PROJECT_DIR$/PerfectNumbers/PerfectNumbers.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pyramide/Pyramide.iml" filepath="$PROJECT_DIR$/Pyramide/Pyramide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Shapes/Shapes.iml" filepath="$PROJECT_DIR$/Shapes/Shapes.iml" />
       <module fileurl="file://$PROJECT_DIR$/Translater/Translater.iml" filepath="$PROJECT_DIR$/Translater/Translater.iml" />
       <module fileurl="file://$PROJECT_DIR$/epamPractice.iml" filepath="$PROJECT_DIR$/epamPractice.iml" />
     </modules>

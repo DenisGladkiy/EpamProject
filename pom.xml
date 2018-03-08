@@ -14,6 +14,7 @@
         <module>Pyramide</module>
         <module>MatrixRotate</module>
         <module>Hospital</module>
+        <module>Shapes</module>
     </modules>
 
 
