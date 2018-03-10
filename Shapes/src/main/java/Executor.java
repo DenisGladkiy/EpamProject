@@ -14,7 +14,7 @@ public class Executor {
     public void execute(){
         controller.showAll();
         controller.calculateTotalArea();
-        controller.calculateSelectedShapeArea("circle");
+        controller.calculateSelectedShapeArea("model.entity.Circle");
         controller.sortByArea();
         controller.sortByColor();
     }

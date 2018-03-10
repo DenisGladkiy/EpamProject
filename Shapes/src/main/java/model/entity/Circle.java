@@ -16,6 +16,6 @@ public class Circle extends Shape {
     }
 
     public String toString(){
-        return super.toString() + " circle";
+        return super.toString() + " Circle" + " " + String.valueOf(calcArea());
     }
 }

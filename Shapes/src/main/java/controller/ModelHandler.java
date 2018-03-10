@@ -2,6 +2,10 @@ package controller;
 
 import model.Model;
 import model.entity.Shape;
+import utils.AreaComparator;
+import utils.ColorComparator;
+
+import java.util.Arrays;
 
 /**
  * Created by Denis on 08.03.2018.
@@ -33,14 +37,26 @@ public class ModelHandler {
     }
 
     int calculateSelected(String shape){
-        return 0;
+        int totalArea = 0;
+        try {
+            for (Shape sh : shapes) {
+                if (Class.forName(shape).isInstance(sh)) {
+                    totalArea += sh.calcArea();
+                }
+            }
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        return totalArea;
     }
 
     String sortByArea(){
-        return "sortByArea";
+        Arrays.sort(shapes, new AreaComparator());
+        return drawAllShapes();
     }
 
     String sortByColor(){
-        return "sortByColor";
+        Arrays.sort(shapes, new ColorComparator());
+        return drawAllShapes();
     }
 }

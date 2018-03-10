@@ -19,6 +19,10 @@ public abstract class Shape implements Drawable{
         return toString();
     }
 
+    public String getColor(){
+        return shapeColor;
+    }
+
     @Override
     public String toString(){
         return shapeColor;

@@ -30,7 +30,7 @@ public class ShapesFiller {
         int radius;
         for(int i = 0; i < circlesNumber; i++){
             color = colors[random.nextInt(3)];
-            radius = random.nextInt(10);
+            radius = 1 + random.nextInt(9);
             model.addShape(new Circle(color, radius));
         }
     }
@@ -40,8 +40,8 @@ public class ShapesFiller {
         int width;
         for(int i = 0; i < rectangleNumber; i++){
             color = colors[random.nextInt(3)];
-            length = random.nextInt(10);
-            width = random.nextInt(10);
+            length = 1 + random.nextInt(9);
+            width = 1 + random.nextInt(9);
             model.addShape(new Rectangle(color, length, width));
         }
     }
@@ -51,8 +51,8 @@ public class ShapesFiller {
         int height;
         for(int i = 0; i < triangleNumber; i++){
             color = colors[random.nextInt(3)];
-            width = random.nextInt(10);
-            height = random.nextInt(10);
+            width = 1 + random.nextInt(9);
+            height = 1 + random.nextInt(9);
             model.addShape(new Triangle(color, width, height));
         }
     }

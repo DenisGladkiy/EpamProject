@@ -20,6 +20,6 @@ public class Triangle extends Shape {
     }
 
     public String toString(){
-        return super.toString() + " triangle";
+        return super.toString() + " Triangle " + String.valueOf(calcArea());
     }
 }
