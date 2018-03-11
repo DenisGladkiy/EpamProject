@@ -11,8 +11,8 @@ public class Circle extends Shape {
         super(color);
         this.radius = radius;
     }
-    public int calcArea() {
-        return radius*2;
+    public float calcArea() {
+        return 3.14f * radius * radius;
     }
 
     public String toString(){

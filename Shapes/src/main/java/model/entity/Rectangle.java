@@ -16,7 +16,7 @@ public class Rectangle extends Shape {
         this.width = width;
     }
 
-    public int calcArea() {
+    public float calcArea() {
         return length*width;
     }
 

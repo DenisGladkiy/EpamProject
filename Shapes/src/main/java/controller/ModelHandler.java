@@ -21,7 +21,6 @@ public class ModelHandler {
 
     String drawAllShapes(){
         StringBuilder builder = new StringBuilder();
-        builder.append("All Shapes\n");
         for(Shape shape : shapes){
             builder.append(shape.draw() + "; ");
         }
@@ -52,11 +51,11 @@ public class ModelHandler {
 
     String sortByArea(){
         Arrays.sort(shapes, new AreaComparator());
-        return drawAllShapes();
+        return "Shapes sorted by area \n" + drawAllShapes();
     }
 
     String sortByColor(){
         Arrays.sort(shapes, new ColorComparator());
-        return drawAllShapes();
+        return "Shapes sorted by color \n" + drawAllShapes();
     }
 }

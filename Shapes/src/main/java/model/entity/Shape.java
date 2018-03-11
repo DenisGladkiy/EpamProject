@@ -13,7 +13,7 @@ public abstract class Shape implements Drawable{
         this.shapeColor = shapeColor;
     }
 
-    public abstract int calcArea();
+    public abstract float calcArea();
 
     public String draw(){
         return toString();

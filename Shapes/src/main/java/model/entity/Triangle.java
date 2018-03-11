@@ -15,8 +15,8 @@ public class Triangle extends Shape {
         this.width = width;
         this.height = height;
     }
-    public int calcArea() {
-        return width*height;
+    public float calcArea() {
+        return 0.5f * width * height;
     }
 
     public String toString(){
