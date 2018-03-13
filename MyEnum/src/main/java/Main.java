@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created by Denis on 13.03.2018.
  */
@@ -11,5 +13,8 @@ public class Main {
         MyEnum m2 = MyEnum.TWO;
         MyEnum m3 = MyEnum.THREE;
         System.out.println(m1 + " " + m2 + " " + m3);
+        System.out.println(Arrays.toString(MyEnum.values()));
+        System.out.println(m1.ordinal() + " " + m2.ordinal() + " " + m3.ordinal());
+        System.out.println(MyEnum.valueOf("THREE"));
     }
 }
