@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Hospital/Hospital.iml" filepath="$PROJECT_DIR$/Hospital/Hospital.iml" />
       <module fileurl="file://$PROJECT_DIR$/MatrixRotate/MatrixRotate.iml" filepath="$PROJECT_DIR$/MatrixRotate/MatrixRotate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyEnum/MyEnum.iml" filepath="$PROJECT_DIR$/MyEnum/MyEnum.iml" />
       <module fileurl="file://$PROJECT_DIR$/PerfectNumbers/PerfectNumbers.iml" filepath="$PROJECT_DIR$/PerfectNumbers/PerfectNumbers.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pyramide/Pyramide.iml" filepath="$PROJECT_DIR$/Pyramide/Pyramide.iml" />
       <module fileurl="file://$PROJECT_DIR$/Shapes/Shapes.iml" filepath="$PROJECT_DIR$/Shapes/Shapes.iml" />

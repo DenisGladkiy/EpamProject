@@ -15,6 +15,7 @@
         <module>MatrixRotate</module>
         <module>Hospital</module>
         <module>Shapes</module>
+        <module>MyEnum</module>
     </modules>
 
 
