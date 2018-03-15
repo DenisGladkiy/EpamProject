@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Hospital" />
+        <module name="InnerClassResearch" />
         <module name="MatrixRotate" />
         <module name="MyEnum" />
         <module name="PerfectNumbers" />
@@ -18,6 +19,7 @@
     <bytecodeTargetLevel>
       <module name="epamPractice" target="1.5" />
       <module name="Hospital" target="1.7" />
+      <module name="InnerClassResearch" target="1.7" />
       <module name="MatrixRotate" target="1.5" />
       <module name="MyEnum" target="1.5" />
       <module name="PerfectNumbers" target="1.5" />

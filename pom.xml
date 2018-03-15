@@ -16,6 +16,7 @@
         <module>Hospital</module>
         <module>Shapes</module>
         <module>MyEnum</module>
+        <module>InnerClassResearch</module>
     </modules>
 
 
