@@ -29,7 +29,7 @@
       <module name="Shapes" target="1.5" />
       <module name="Train" target="1.5" />
       <module name="Translater" target="1.5" />
-      <module name="UnitTest" target="1.5" />
+      <module name="UnitTest" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
