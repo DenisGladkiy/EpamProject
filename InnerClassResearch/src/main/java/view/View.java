@@ -24,7 +24,6 @@ public class View {
         String request = reader.readString();
         while(!request.equals("exit")) {
             reply(handleRequest(request));
-            //showAllOptions();
             request = reader.readString();
         }
     }

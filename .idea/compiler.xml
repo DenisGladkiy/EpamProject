@@ -13,7 +13,9 @@
         <module name="PerfectNumbers" />
         <module name="Pyramide" />
         <module name="Shapes" />
+        <module name="Train" />
         <module name="Translater" />
+        <module name="UnitTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,7 +27,9 @@
       <module name="PerfectNumbers" target="1.5" />
       <module name="Pyramide" target="1.5" />
       <module name="Shapes" target="1.5" />
+      <module name="Train" target="1.5" />
       <module name="Translater" target="1.5" />
+      <module name="UnitTest" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,7 +1,6 @@
 package controller;
 
 import model.Shop;
-import utils.Reader;
 import view.View;
 
 /**

@@ -17,6 +17,8 @@
         <module>Shapes</module>
         <module>MyEnum</module>
         <module>InnerClassResearch</module>
+        <module>Train</module>
+        <module>UnitTest</module>
     </modules>
 
 
