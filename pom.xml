@@ -15,7 +15,7 @@
         <module>MatrixRotate</module>
         <module>Hospital</module>
         <module>Shapes</module>
-        <module>MyEnum</module>
+        <module>MyAbstractEnum</module>
         <module>InnerClassResearch</module>
         <module>Train</module>
         <module>UnitTest</module>

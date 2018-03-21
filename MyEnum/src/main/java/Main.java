@@ -5,16 +5,16 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args) {
-        Test t1 = Test.ONE;
-        Test t2 = Test.TWO;
-        Test t3 = Test.THREE;
-        System.out.println(t1 + " " + t2 + " " + t3);
-        MyEnum m1 = MyEnum.ONE;
-        MyEnum m2 = MyEnum.TWO;
-        MyEnum m3 = MyEnum.THREE;
-        System.out.println(m1 + " " + m2 + " " + m3);
-        System.out.println(Arrays.toString(MyEnum.values()));
-        System.out.println(m1.ordinal() + " " + m2.ordinal() + " " + m3.ordinal());
-        System.out.println(MyEnum.valueOf("THREE"));
+        Colors red = Colors.RED;
+        Colors green = Colors.GREEN;
+        Colors blue = Colors.BLUE;
+        Cars bmw = Cars.BMW;
+        Cars toyota = Cars.TOYOTA;
+        Cars skoda = Cars.SKODA;
+        System.out.println(red + " " + green + " " + blue);
+        System.out.println(red.ordinal() + " " + green.ordinal() + " " + blue.ordinal());
+        System.out.println(Arrays.toString(Colors.values()));
+        System.out.println(Colors.valueOf("RED"));
+        System.out.println(bmw.ordinal() + " " + toyota.ordinal() + " " + skoda.ordinal());
     }
 }
