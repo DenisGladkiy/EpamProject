@@ -16,5 +16,6 @@ public class Main {
         System.out.println(Arrays.toString(Colors.values()));
         System.out.println(Colors.valueOf("RED"));
         System.out.println(bmw.ordinal() + " " + toyota.ordinal() + " " + skoda.ordinal());
+        System.out.println(Arrays.toString(Cars.values()));
     }
 }

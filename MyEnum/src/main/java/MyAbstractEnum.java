@@ -1,6 +1,7 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Denis on 13.03.2018.
@@ -20,10 +21,16 @@ public abstract class MyAbstractEnum<E extends MyAbstractEnum<E>> implements Com
         return name;
     }
 
-    public static MyAbstractEnum[] values(){
-        MyAbstractEnum[] me = new MyAbstractEnum[values.size()];
-        return values.toArray(me);
-    };
+    public static MyAbstractEnum[] values(Class type){
+        List<MyAbstractEnum> list = new ArrayList<>();
+        for(MyAbstractEnum me : values){
+            if(type.isInstance(me)){
+                list.add(me);
+            }
+        }
+        MyAbstractEnum[] me = new MyAbstractEnum[list.size()];
+        return list.toArray(me);
+    }
 
     public static MyAbstractEnum valueOf(String name){
         for(MyAbstractEnum me : values){

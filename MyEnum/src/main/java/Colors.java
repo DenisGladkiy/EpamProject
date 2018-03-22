@@ -9,6 +9,10 @@ public class Colors extends MyAbstractEnum<Colors> {
     public static final Colors GREEN = new Colors("green");
     public static final Colors BLUE = new Colors("blue");
 
+    public static MyAbstractEnum[] values(){
+        return MyAbstractEnum.values(Colors.class);
+    }
+
     private Colors(String name) {
         super(name, ordinal++);
     }

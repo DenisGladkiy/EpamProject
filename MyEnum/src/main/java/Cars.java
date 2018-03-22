@@ -7,6 +7,10 @@ public class Cars extends MyAbstractEnum<Cars> {
     public static final Cars TOYOTA = new Cars("toyota");
     public static final Cars SKODA = new Cars("skoda");
 
+    public static MyAbstractEnum[] values(){
+        return MyAbstractEnum.values(Cars.class);
+    }
+
     protected Cars(String name) {
         super(name, ordinal++);
     }
