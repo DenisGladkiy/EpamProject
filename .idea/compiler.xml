@@ -23,7 +23,7 @@
       <module name="Hospital" target="1.7" />
       <module name="InnerClassResearch" target="1.7" />
       <module name="MatrixRotate" target="1.5" />
-      <module name="MyEnum" target="1.8" />
+      <module name="MyEnum" target="1.5" />
       <module name="PerfectNumbers" target="1.5" />
       <module name="Pyramide" target="1.5" />
       <module name="Shapes" target="1.5" />

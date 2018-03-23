@@ -1,6 +1,5 @@
 package controller;
 
-import model.entity.Shape;
 import view.View;
 
 /**
@@ -19,12 +18,16 @@ public class Controller {
         view.showShapes(modelHandler.drawAllShapes());
     }
 
-    public void calculateTotalArea(){
-        view.showArea(modelHandler.calculateTotal());
+    public int calculateTotalArea(){
+        int result = modelHandler.calculateTotal();
+        view.showArea(result);
+        return result;
     }
 
-    public void calculateSelectedShapeArea(String shape){
-        view.showArea(modelHandler.calculateSelected(shape));
+    public int calculateSelectedShapeArea(String shape){
+        int result = modelHandler.calculateSelected(shape);
+        view.showArea(result);
+        return result;
     }
 
     public void sortByArea(){

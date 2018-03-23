@@ -1,7 +1,6 @@
 package model;
 
 import model.entity.Shape;
-
 import java.util.Arrays;
 
 /**

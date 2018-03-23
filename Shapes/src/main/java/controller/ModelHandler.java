@@ -4,7 +4,6 @@ import model.Model;
 import model.entity.Shape;
 import utils.AreaComparator;
 import utils.ColorComparator;
-
 import java.util.Arrays;
 
 /**
