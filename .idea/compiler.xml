@@ -12,6 +12,7 @@
         <module name="MyEnum" />
         <module name="PerfectNumbers" />
         <module name="Pyramide" />
+        <module name="RegularExpressions" />
         <module name="Shapes" />
         <module name="Train" />
         <module name="Translater" />
@@ -26,6 +27,7 @@
       <module name="MyEnum" target="1.5" />
       <module name="PerfectNumbers" target="1.5" />
       <module name="Pyramide" target="1.5" />
+      <module name="RegularExpressions" target="1.7" />
       <module name="Shapes" target="1.5" />
       <module name="Train" target="1.5" />
       <module name="Translater" target="1.5" />

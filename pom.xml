@@ -19,6 +19,7 @@
         <module>InnerClassResearch</module>
         <module>Train</module>
         <module>UnitTest</module>
+        <module>RegularExpressions</module>
     </modules>
 
 
