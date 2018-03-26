@@ -20,6 +20,7 @@
         <module>Train</module>
         <module>UnitTest</module>
         <module>RegularExpressions</module>
+        <module>EnglishTranslater</module>
     </modules>
 
 

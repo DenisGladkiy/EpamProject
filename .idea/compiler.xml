@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="EnglishTranslater" />
         <module name="Hospital" />
         <module name="InnerClassResearch" />
         <module name="MatrixRotate" />
@@ -20,6 +21,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="EnglishTranslater" target="1.5" />
       <module name="epamPractice" target="1.5" />
       <module name="Hospital" target="1.7" />
       <module name="InnerClassResearch" target="1.7" />

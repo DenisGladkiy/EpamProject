@@ -1,0 +1,21 @@
+hi - привет
+hello - здравствуйте
+sorry - извини
+please - пожалуйста
+thanks - спасибо
+goodbye - до свидания
+people - люди
+man - мужчина
+woman - женщина
+child - ребенок
+boy - мальчик
+girl - девочка
+guy - парень
+friend - друг
+neighbor - сосед
+guest - гость
+chief - начальник
+boss - босс
+competitor - конкурент
+client - клиент
+colleague - коллега
