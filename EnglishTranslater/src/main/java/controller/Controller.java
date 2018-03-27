@@ -37,8 +37,11 @@ public class Controller {
             addMatcher = add.matcher(request);
             if(addMatcher.find()){
                 addString = addMatcher.group(2);
-                handler.addPair(addString);
-                writer.writeConsole("В словарь добавлены - " + addString);
+                if(handler.addPair(addString)) {
+                    writer.writeConsole("В словарь добавлены - " + addString);
+                }else{
+                    writer.writeConsole(addString + " уже есть в словаре");
+                }
                 continue;
             }
             writer.writeConsole(translater.translate(request));

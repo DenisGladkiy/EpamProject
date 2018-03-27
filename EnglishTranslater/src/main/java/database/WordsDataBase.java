@@ -20,4 +20,8 @@ public class WordsDataBase {
     public String getTranslation(String english){
         return words.get(english);
     }
+
+    public boolean contains(String key){
+        return words.containsKey(key);
+    }
 }

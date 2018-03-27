@@ -13,6 +13,17 @@ public class Translater {
     }
 
     public String translate(String english){
-        return db.getTranslation(english);
+        String[] sentence = english.split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+        String translation;
+        for(String s : sentence){
+            translation = db.getTranslation(s);
+            if(translation != null) {
+                stringBuilder.append(db.getTranslation(s) + " ");
+            }else{
+                stringBuilder.append("??? ");
+            }
+        }
+        return stringBuilder.toString();
     }
 }

@@ -32,8 +32,13 @@ public class DbHandler {
         }
     }
 
-    public void addPair(String pair){
+    public boolean addPair(String pair){
         String[] lineArr = pair.split("-");
-        db.addPair(lineArr[0].trim(), lineArr[1].trim());
+        if(!db.contains(lineArr[0])) {
+            db.addPair(lineArr[0].trim(), lineArr[1].trim());
+            return true;
+        }else{
+            return false;
+        }
     }
 }
