@@ -21,6 +21,7 @@
         <module>UnitTest</module>
         <module>RegularExpressions</module>
         <module>EnglishTranslater</module>
+        <module>ListAndSet</module>
     </modules>
 
 

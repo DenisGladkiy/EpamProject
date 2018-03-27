@@ -9,6 +9,7 @@
         <module name="EnglishTranslater" />
         <module name="Hospital" />
         <module name="InnerClassResearch" />
+        <module name="ListAndSet" />
         <module name="MatrixRotate" />
         <module name="MyEnum" />
         <module name="PerfectNumbers" />
@@ -25,6 +26,7 @@
       <module name="epamPractice" target="1.5" />
       <module name="Hospital" target="1.7" />
       <module name="InnerClassResearch" target="1.7" />
+      <module name="ListAndSet" target="1.7" />
       <module name="MatrixRotate" target="1.5" />
       <module name="MyEnum" target="1.5" />
       <module name="PerfectNumbers" target="1.5" />
