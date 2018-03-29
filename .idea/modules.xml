@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/MyEnum/MyEnum.iml" filepath="$PROJECT_DIR$/MyEnum/MyEnum.iml" />
       <module fileurl="file://$PROJECT_DIR$/PerfectNumbers/PerfectNumbers.iml" filepath="$PROJECT_DIR$/PerfectNumbers/PerfectNumbers.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pyramide/Pyramide.iml" filepath="$PROJECT_DIR$/Pyramide/Pyramide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RedAndBlackTree/RedAndBlackTree.iml" filepath="$PROJECT_DIR$/RedAndBlackTree/RedAndBlackTree.iml" />
       <module fileurl="file://$PROJECT_DIR$/RegularExpressions/RegularExpressions.iml" filepath="$PROJECT_DIR$/RegularExpressions/RegularExpressions.iml" />
       <module fileurl="file://$PROJECT_DIR$/Shapes/Shapes.iml" filepath="$PROJECT_DIR$/Shapes/Shapes.iml" />
       <module fileurl="file://$PROJECT_DIR$/Train/Train.iml" filepath="$PROJECT_DIR$/Train/Train.iml" />

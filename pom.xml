@@ -22,6 +22,7 @@
         <module>RegularExpressions</module>
         <module>EnglishTranslater</module>
         <module>ListAndSet</module>
+        <module>RedAndBlackTree</module>
     </modules>
 
 
