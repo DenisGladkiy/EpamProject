@@ -36,11 +36,13 @@ public class RedAndBlackTree {
     }
 
     private void printElementTree(Node node, int level){
+        StringBuilder builder = new StringBuilder();
         if(node != null){
-            for(int i = 0; i<=0; i++){
-                System.out.println(" ");
+            for(int i = 0; i<=level; i++){
+                builder.append("-");
             }
-            System.out.println(String.valueOf(node.key));
+            builder.append(String.valueOf(node.key));
+            System.out.println(builder);
             level++;
             printElementTree(node.left, level);
             printElementTree(node.right, level);
