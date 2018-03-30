@@ -1,10 +1,10 @@
 package mainClasses.controller;
 
 import mainClasses.model.Patient;
-import mainClasses.view.UserInterface;
 import mainClasses.model.Storage;
-import mainClasses.serializer.PatientReader;
-import mainClasses.serializer.PatientWriter;
+import mainClasses.view.UserInterface;
+import utils.PatientReader;
+import utils.PatientWriter;
 
 import java.io.File;
 import java.util.Arrays;
@@ -17,7 +17,7 @@ public class Controller {
     private PatientWriter patientWriter;
     private PatientReader patientReader;
     private Storage storage;
-    private File file = new File("Hospital/src/main/java/mainClasses/model/data");
+    private File file = new File("Practice_6/src/main/java/mainClasses/model/data");
     Patient[] requestedPatients;
 
 
@@ -55,9 +55,12 @@ public class Controller {
             default:
                 System.out.println("Неизвестный запрос");
         }
-        return Arrays.toString(requestedPatients);
+        if(requestedPatients != null) {
+            return Arrays.toString(requestedPatients);
+        }else{
+            return "Запрос не вернул результатов";
+        }
     }
-
     public void showMenu(){
         userInterface.makeMenu();
     }
