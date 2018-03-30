@@ -1,9 +1,11 @@
 package mainClasses.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Denis on 01.03.2018.
  */
-public class Patient {
+public class Patient implements Serializable {
 
     private String surname;
     private String name;

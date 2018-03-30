@@ -29,7 +29,7 @@ public class Storage {
         }
     }
 
-    public String selectByIllness(String illness){
+    public Patient[] selectByIllness(String illness){
         Arrays.fill(requestedPatients, null);
         int arrIndex = 0;
         for(Patient p : patients){
@@ -39,23 +39,17 @@ public class Storage {
             }
         }
         if(null != requestedPatients[0]) {
-            return Arrays.toString(Arrays.copyOf(requestedPatients, arrIndex));
+            return Arrays.copyOf(requestedPatients, arrIndex);
         }else{
-            return "Нет пациентов с таким диагнозом";
+            return null;
         }
     }
 
-    public String showAllPatients(){
-        StringBuilder stringBuilder = new StringBuilder();
-        for(Patient patient : patients){
-            if(null != patient){
-                stringBuilder.append(patient.toString());
-            }
-        }
-        return stringBuilder.toString();
+    public Patient[] showAllPatients(){
+        return Arrays.copyOf(patients, patients.length);
     }
 
-    public String selectByNumber(int[] numbers){
+    public Patient[] selectByNumber(int[] numbers){
         if(isInRange(numbers)) {
             Arrays.fill(requestedPatients, null);
             int arrIndex = 0;
@@ -70,20 +64,20 @@ public class Storage {
                     break;
                 }
             }
-            return Arrays.toString(Arrays.copyOf(requestedPatients, arrIndex));
+            return Arrays.copyOf(requestedPatients, arrIndex);
         }else{
-            return "Запрошенные номера за пределами доступного диапазона";
+            return null;
         }
     }
 
-    public String sortArray(){
+    public Patient[] sortArray(){
         int index = 0;
         while(null != patients[index]) {
             index++;
         }
         requestedPatients = Arrays.copyOf(patients, index);
         Arrays.sort(requestedPatients, new PatientComparator());
-        return Arrays.toString(requestedPatients);
+        return requestedPatients;
     }
 
     private boolean isInRange(int[] numbers){

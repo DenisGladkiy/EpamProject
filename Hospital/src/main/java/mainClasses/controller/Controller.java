@@ -1,43 +1,61 @@
 package mainClasses.controller;
 
+import mainClasses.model.Patient;
 import mainClasses.view.UserInterface;
 import mainClasses.model.Storage;
+import utils.PatientReader;
+import utils.PatientWriter;
+
+import java.io.File;
+import java.util.Arrays;
 
 /**
  * Created by Denis on 01.03.2018.
  */
 public class Controller {
-
     private UserInterface userInterface;
+    private PatientWriter patientWriter;
+    private PatientReader patientReader;
     private Storage storage;
+    private File file = new File("Hospital/src/main/java/mainClasses/model/data");
+    Patient[] requestedPatients;
 
 
     public Controller(Storage storage){
         this.storage = storage;
         userInterface = new UserInterface(this);
+        patientWriter = new PatientWriter(file);
+        patientReader = new PatientReader(file);
     }
 
     public String handle(String request){
         switch (request){
-            case "0" : {
-                return storage.showAllPatients();
-            }
-            case "1" : {
+            case "0" :
+                requestedPatients = storage.showAllPatients();
+                break;
+            case "1" :
                 String illness = userInterface.askIllness();
-                return storage.selectByIllness(illness);
-            }
-            case "2" : {
+                requestedPatients = storage.selectByIllness(illness);
+                break;
+            case "2" :
                 int[] numbers = userInterface.askNumbers();
-                return storage.selectByNumber(numbers);
-            }
-            case "3" : {
-                return storage.sortArray();
-            }
-            default:{
+                requestedPatients = storage.selectByNumber(numbers);
+                break;
+            case "3" :
+                requestedPatients = storage.sortArray();
+                break;
+            case "4":
+                if(patientWriter.writePatients(requestedPatients)){
+                    return "OK";
+                }
+                break;
+            case "5":
+                requestedPatients = patientReader.readPatients();
+                break;
+            default:
                 System.out.println("Неизвестный запрос");
-            }
         }
-        return "";
+        return Arrays.toString(requestedPatients);
     }
 
     public void showMenu(){

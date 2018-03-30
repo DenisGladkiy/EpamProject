@@ -65,6 +65,8 @@ public class UserInterface {
         System.out.println("Для получения списка пациентов с диагнозом введите  '1'");
         System.out.println("Для получения списка пациентов по диапазону номеров '2'");
         System.out.println("Для сортировки общего списка пациентов по фамилии   '3'");
+        System.out.println("Для сохранения пациентов в файл                     '4'");
+        System.out.println("Для чтения пациентов из файла                       '5'");
         System.out.println("Для выхода введите 'exit'");
     }
 }
