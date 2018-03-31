@@ -7,6 +7,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -40,43 +41,50 @@ public class TemperatureConverterTest {
         double fahrenheit = 0.0;
         double expected = -17.7778;
         double result = (double)Math.round(temperatureConverter.convertFtoC(fahrenheit)*10000)/10000;
-        assertTrue(buildReply(expected, result), expected == result);
+        //assertTrue(buildReply(expected, result), expected == result);
+        assertEquals(expected, result, 1);
     }
 
     @Test
     public void paramTestFtoC(){
         double result = (double)Math.round(temperatureConverter.convertFtoC(fahrenheit)*10)/10;
-        assertTrue(buildReply(celsius, result), celsius == result);
+        //assertTrue(buildReply(celsius, result), celsius == result);
+        assertEquals(celsius, result, 1);
     }
 
     @Test
     public void paramTestCtoF(){
         double result = (double)Math.round(temperatureConverter.convertCtoF(celsius)*10)/10;
-        assertTrue(buildReply(fahrenheit, result), fahrenheit == result);
+        //assertTrue(buildReply(fahrenheit, result), fahrenheit == result);
+        assertEquals(fahrenheit, result, 1);
     }
 
     @Test
     public void paramTestCtoK(){
         double result = (double)Math.round(temperatureConverter.convertCtoK(celsius)*10)/10;
-        assertTrue(buildReply(kelvin, result), kelvin == result);
+        //assertTrue(buildReply(kelvin, result), kelvin == result);
+        assertEquals(kelvin, result,1);
     }
 
     @Test
     public void paramTestKtoC(){
         double result = (double)Math.round(temperatureConverter.convertKtoC(kelvin)*10)/10;
-        assertTrue(buildReply(celsius, result), celsius == result);
+        //assertTrue(buildReply(celsius, result), celsius == result);
+        assertEquals(celsius, result, 1);
     }
 
     @Test
     public void paramTestFtoK(){
         double result = (double)Math.round(temperatureConverter.convertFtoK(fahrenheit)*10)/10;
-        assertTrue(buildReply(kelvin, result), kelvin == result);
+        //assertTrue(buildReply(kelvin, result), kelvin == result);
+        assertEquals(kelvin, result, 1);
     }
 
     @Test
     public void paramTestKtoF(){
         double result = (double)Math.round(temperatureConverter.convertKtoF(kelvin)*10)/10;
-        assertTrue(buildReply(fahrenheit, result), fahrenheit == result);
+        //assertTrue(buildReply(fahrenheit, result), fahrenheit == result);
+        assertEquals(fahrenheit, result, 1);
     }
 
     private String buildReply(double expected, double result){

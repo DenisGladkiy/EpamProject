@@ -1,4 +1,4 @@
-package utils;
+package mainClasses.serializer;
 
 import mainClasses.model.Patient;
 

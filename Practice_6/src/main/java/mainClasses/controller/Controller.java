@@ -3,8 +3,8 @@ package mainClasses.controller;
 import mainClasses.model.Patient;
 import mainClasses.model.Storage;
 import mainClasses.view.UserInterface;
-import utils.PatientReader;
-import utils.PatientWriter;
+import mainClasses.serializer.PatientReader;
+import mainClasses.serializer.PatientWriter;
 
 import java.io.File;
 import java.util.Arrays;
