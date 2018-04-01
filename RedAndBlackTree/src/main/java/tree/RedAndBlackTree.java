@@ -75,11 +75,116 @@ public class RedAndBlackTree {
         node.right.color = !node.right.color;
     }
 
-    public Node getNode(int key){return null;}
+    public Node getNode(int key){
+        if(root == null){
+            System.out.println("Дерево пустое");
+            return null;
+        }
+        Node temp = root;
+        while(temp != null){
+            int compare = temp.key - key;
+            if(compare > 0){
+                temp = temp.left;
+            }else if(compare < 0){
+                temp = temp.right;
+            }else{
+                return temp;
+            }
+        }
+        return null;
+    }
 
-    public int getKey(Node node){return node.key;}
+    public void delete(int key){
+        if(getNode(key) == null){
+            return;
+        }
+        if(!redColor(root.left) && !redColor(root.right)){
+            root.color = RED;
+        }
+        root = delete(root, key);
+        if(root != null){
+            root.color = BLACK;
+        }
+        size--;
+    }
 
-    public void delete(int key){}
+    private Node delete(Node node, int key){
+        if(node.key - key > 0){
+            if(!redColor(node.left) && !redColor(node.left.left)){
+                node = moveRedLeft(node);
+            }
+            node.left = delete(node.left, key);
+        }else{
+            if(redColor(node.left)){
+                node = rotateRight(node);
+            }
+            if(node.key == key && node.right == null){
+                return null;
+            }
+            if(!redColor(node.right) && !redColor(node.right.left)){
+                node = moveRedRight(node);
+            }
+            if(node.key == key){
+                Node temp = min(node.right);
+                node.key = temp.key;
+                node.right = deleteMin(node.right);
+            }else{
+                node.right = delete(node.right, key);
+            }
+        }
+        return balance(node);
+    }
+
+    private Node moveRedLeft(Node node){
+        swapColor(node);
+        if(redColor(node.right.left)){
+            node.right = rotateRight(node.right);
+            node = rotateLeft(node);
+            swapColor(node);
+        }
+        return node;
+    }
+
+    private Node moveRedRight(Node node){
+        swapColor(node);
+        if(redColor(node.left.left)){
+            node = rotateRight(node);
+            swapColor(node);
+        }
+        return node;
+    }
+
+    private Node min(Node node){
+        if(node.left == null){
+            return node;
+        }else{
+            return min(node.left);
+        }
+    }
+
+    private Node deleteMin(Node node){
+        if(node.left == null){
+            return null;
+        }
+        if(!redColor(node.left) && !redColor(node.left.left)){
+            node = moveRedLeft(node);
+        }
+        node.left = deleteMin(node.left);
+        return balance(node);
+    }
+
+    private Node balance(Node node){
+        if(redColor(node.right)){
+            node = rotateLeft(node);
+        }
+        if(redColor(node.left) && redColor(node.left.left)){
+            node = rotateRight(node);
+        }
+        if(redColor(node.left) && redColor(node.right)){
+            swapColor(node);
+        }
+        return node;
+    }
 
     private void printTree(){
         printElementTree(root,0);
@@ -108,6 +213,11 @@ public class RedAndBlackTree {
         public Node(int key, boolean color){
             this.key = key;
             this.color = color;
+        }
+
+        @Override
+        public String toString(){
+            return String.valueOf(key) + (color?"red":"black");
         }
     }
 
