@@ -22,8 +22,7 @@ public class RedAndBlackTree {
         if(redColor(node.left) && redColor(node.right)){
             swapColor(node);
         }
-        int compare = node.key - key;
-        if(compare > 0) {
+        if(node.key > key) {
             node.left = add(node.left, key, false);
             if(redColor(node) && redColor(node.left) && flag){
                 node = rotateRight(node);
@@ -31,7 +30,7 @@ public class RedAndBlackTree {
             if(redColor(node.left) && redColor(node.left.left)){
                 node = rotateRight(node);
             }
-        }else if(compare < 0){
+        }else if(node.key < key){
             node.right = add(node.right,key, true);
             if(redColor(node) && redColor(node.right) && !flag){
                 node = rotateLeft(node);
@@ -82,10 +81,9 @@ public class RedAndBlackTree {
         }
         Node temp = root;
         while(temp != null){
-            int compare = temp.key - key;
-            if(compare > 0){
+            if(temp.key > key){
                 temp = temp.left;
-            }else if(compare < 0){
+            }else if(temp.key < key){
                 temp = temp.right;
             }else{
                 return temp;
@@ -98,92 +96,36 @@ public class RedAndBlackTree {
         if(getNode(key) == null){
             return;
         }
-        if(!redColor(root.left) && !redColor(root.right)){
-            root.color = RED;
-        }
         root = delete(root, key);
-        if(root != null){
-            root.color = BLACK;
-        }
         size--;
     }
 
     private Node delete(Node node, int key){
-        if(node.key - key > 0){
-            if(!redColor(node.left) && !redColor(node.left.left)){
-                node = moveRedLeft(node);
-            }
+        if(node == null){
+            return null;
+        }
+        if(node.key > key){
             node.left = delete(node.left, key);
+        }else if(node.key < key){
+            node.right = delete(node.right, key);
         }else{
-            if(redColor(node.left)){
-                node = rotateRight(node);
+            if(node.left == null){
+                return node.right;
+            }else if(node.right == null){
+                return node.left;
             }
-            if(node.key == key && node.right == null){
-                return null;
-            }
-            if(!redColor(node.right) && !redColor(node.right.left)){
-                node = moveRedRight(node);
-            }
-            if(node.key == key){
-                Node temp = min(node.right);
-                node.key = temp.key;
-                node.right = deleteMin(node.right);
-            }else{
-                node.right = delete(node.right, key);
-            }
-        }
-        return balance(node);
-    }
-
-    private Node moveRedLeft(Node node){
-        swapColor(node);
-        if(redColor(node.right.left)){
-            node.right = rotateRight(node.right);
-            node = rotateLeft(node);
-            swapColor(node);
+            node.key = min(node.right);
+            node.right = delete(node.right, node.key);
         }
         return node;
     }
 
-    private Node moveRedRight(Node node){
-        swapColor(node);
-        if(redColor(node.left.left)){
-            node = rotateRight(node);
-            swapColor(node);
-        }
-        return node;
-    }
-
-    private Node min(Node node){
+    private int min(Node node){
         if(node.left == null){
-            return node;
+            return node.key;
         }else{
             return min(node.left);
         }
-    }
-
-    private Node deleteMin(Node node){
-        if(node.left == null){
-            return null;
-        }
-        if(!redColor(node.left) && !redColor(node.left.left)){
-            node = moveRedLeft(node);
-        }
-        node.left = deleteMin(node.left);
-        return balance(node);
-    }
-
-    private Node balance(Node node){
-        if(redColor(node.right)){
-            node = rotateLeft(node);
-        }
-        if(redColor(node.left) && redColor(node.left.left)){
-            node = rotateRight(node);
-        }
-        if(redColor(node.left) && redColor(node.right)){
-            swapColor(node);
-        }
-        return node;
     }
 
     private void printTree(){

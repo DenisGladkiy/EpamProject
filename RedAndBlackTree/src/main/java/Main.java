@@ -11,9 +11,8 @@ public class Main {
         int[] shuffleArr = new int[]{35,9,44,19,28,17,44,75,92,39,95};
         RedAndBlackTree firstTree = fillTree(arr);
         RedAndBlackTree secondTree = fillTree(shuffleArr);
-        secondTree.delete(19);
+        secondTree.delete(9);
         System.out.println(secondTree);
-        System.out.println(secondTree.isBalanced());
     }
 
     private static RedAndBlackTree fillTree(int[] arr){
