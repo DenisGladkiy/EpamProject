@@ -4,15 +4,16 @@ package model.entity;
  * Created by Denis on 01.04.2018.
  */
 public abstract class Sweets {
-    private double sugar;
-    private double weight;
-    private double price;
+    protected int sugar;
+    protected int weight;
+    protected int price;
 
-    public Sweets(double sugar, double weight, double price) {
+    public Sweets(int sugar, int weight, int price) {
         this.sugar = sugar;
         this.weight = weight;
         this.price = price;
     }
 
     public abstract double calculateCalories();
+
 }

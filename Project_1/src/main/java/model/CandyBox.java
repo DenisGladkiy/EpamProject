@@ -2,6 +2,7 @@ package model;
 
 import model.entity.Sweets;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,10 @@ import java.util.List;
  */
 public class CandyBox {
     List<Sweets> sweets;
+
+    public CandyBox(){
+        sweets = new ArrayList<Sweets>();
+    }
 
     public List<Sweets> collectBox(double weight){
         return null;
@@ -27,6 +32,14 @@ public class CandyBox {
 
     public double calculateTotalPrice(){
         return 0;
+    }
+
+    public void addSweetsCollection(List<Sweets> addSweets){
+        sweets.addAll(addSweets);
+    }
+
+    public List<Sweets> getSweets(){
+        return sweets;
     }
 
 }

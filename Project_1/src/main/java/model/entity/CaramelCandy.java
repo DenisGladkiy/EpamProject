@@ -5,11 +5,16 @@ package model.entity;
  */
 public class CaramelCandy extends Sweets{
 
-    public CaramelCandy(double sugar, double weight, double price) {
+    public CaramelCandy(int sugar, int weight, int price) {
         super(sugar, weight, price);
     }
 
     public double calculateCalories() {
         return 0;
+    }
+
+    @Override
+    public String toString(){
+        return "\nCaramelCandy " + " " + String.valueOf(sugar) + " " + String.valueOf(weight)+ " " + String.valueOf(price);
     }
 }
