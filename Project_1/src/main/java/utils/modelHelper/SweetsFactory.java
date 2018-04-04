@@ -26,21 +26,21 @@ public class SweetsFactory {
 
     private Sweets makeCaramelCandy(){
         int sugar = 15 + (int) (Math.random() * 5);
-        int weight = 20 + (int) (Math.random() * 5);
+        int weight = 5 + (int) (Math.random() * 2);
         int price = 5 + (int) (Math.random() * 5);
         return new CaramelCandy(sugar, weight, price);
     }
 
     private Sweets makeChocolateCandy(){
         int sugar = 7 + (int) (Math.random() * 5);
-        int weight = 15 + (int) (Math.random() * 5);
+        int weight = 5 + (int) (Math.random() * 2);
         int price = 10 + (int) (Math.random() * 5);
         return new ChocolateCandy(sugar, weight, price);
     }
 
     private Sweets makeMarmalade(){
         int sugar = 9 + (int) (Math.random() * 5);
-        int weight = 20 + (int) (Math.random() * 5);
+        int weight = 5 + (int) (Math.random() * 2);
         int price = 7 + (int) (Math.random() * 5);
         return new Marmalade(sugar, weight, price);
     }

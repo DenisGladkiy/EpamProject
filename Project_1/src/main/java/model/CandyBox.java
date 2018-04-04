@@ -2,8 +2,7 @@ package model;
 
 import model.entity.Sweets;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Denis on 01.04.2018.
@@ -12,18 +11,44 @@ import java.util.List;
  * сортировки и наполнения подарка.
  */
 public class CandyBox {
-    List<Sweets> sweets;
+    List<Sweets> sweetsBox;
+    int weight;
 
     public CandyBox(){
-        sweets = new ArrayList<Sweets>();
+        sweetsBox = new ArrayList<>();
     }
 
-    public List<Sweets> collectBox(double weight){
-        return null;
+    public void addSweets(Sweets sweets){
+        sweetsBox.add(sweets);
+        weight += sweets.getSugar();
     }
 
-    public List<Sweets> selectBySugar(double from, double to){
-        return null;
+    public void addSweetsCollection(List<Sweets> addSweets){
+        sweetsBox.addAll(addSweets);
+    }
+
+    public List<Sweets> getSweets(){
+        return sweetsBox;
+    }
+
+    public int getWeight(){
+        return weight;
+    }
+
+    public void sortSweets(Comparator<Sweets> comparator){
+        Collections.sort(sweetsBox, comparator);
+    }
+
+    public List<Sweets> selectBySugar(int from, int to){
+        List<Sweets> requestedSweets = new ArrayList<>();
+        int sugar;
+        for(Sweets sweets : sweetsBox){
+            sugar = sweets.getSugar();
+            if(sugar >= from && sugar <= to){
+                requestedSweets.add(sweets);
+            }
+        }
+        return requestedSweets;
     }
 
     public double calculateTotalCalories(){
@@ -33,13 +58,4 @@ public class CandyBox {
     public double calculateTotalPrice(){
         return 0;
     }
-
-    public void addSweetsCollection(List<Sweets> addSweets){
-        sweets.addAll(addSweets);
-    }
-
-    public List<Sweets> getSweets(){
-        return sweets;
-    }
-
 }

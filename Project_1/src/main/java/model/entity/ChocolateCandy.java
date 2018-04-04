@@ -15,6 +15,8 @@ public class ChocolateCandy extends Sweets {
 
     @Override
     public String toString(){
-        return "\nChocolateCandy " + " " + String.valueOf(sugar) + " " + String.valueOf(weight)+ " " + String.valueOf(price);
+        return "\nChocolateCandy " + " " + String.valueOf(getSugar()) + " " +
+                                            String.valueOf(getWeight())+ " " +
+                                            String.valueOf(getPrice());
     }
 }

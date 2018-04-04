@@ -7,6 +7,9 @@ import utils.SweetsEnum;
 import java.util.ArrayList;
 import java.util.List;
 
+import static utils.SweetsEnum.*;
+
+
 /**
  * Created by Denis on 01.04.2018.
  */
@@ -20,9 +23,18 @@ public class CandyBoxCollector {
     }
 
     public void collectCandyBox(){
-        candyBox.addSweetsCollection(produceSweets(20, SweetsEnum.CaramelCandy));
-        candyBox.addSweetsCollection(produceSweets(20, SweetsEnum.ChocolateCandy));
-        candyBox.addSweetsCollection(produceSweets(20, SweetsEnum.Marmalade));
+        candyBox.addSweetsCollection(produceSweets(20, CaramelCandy));
+        candyBox.addSweetsCollection(produceSweets(20, ChocolateCandy));
+        candyBox.addSweetsCollection(produceSweets(20, Marmalade));
+    }
+
+    public void collectCandyBox(int weight){
+        SweetsEnum[] sweetType = {CaramelCandy, ChocolateCandy, Marmalade};
+        int index = 0;
+        while(candyBox.getWeight() < weight){
+            candyBox.addSweets(sweetsFactory.makeSweets(sweetType[index]));
+            if(++index > 2)index = 0;
+        }
     }
 
     private List<Sweets> produceSweets(int number, SweetsEnum sweets){

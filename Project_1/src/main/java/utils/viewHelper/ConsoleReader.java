@@ -16,6 +16,10 @@ public class ConsoleReader {
         return scanner.next();
     }
 
+    public int readInt(){
+        return scanner.nextInt();
+    }
+
     public String readLine(){
         return scanner.nextLine();
     }

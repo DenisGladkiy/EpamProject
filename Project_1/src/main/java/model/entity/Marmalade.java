@@ -15,6 +15,8 @@ public class Marmalade extends Sweets {
 
     @Override
     public String toString(){
-        return "\nMarmalade " + " " + String.valueOf(sugar) + " " + String.valueOf(weight) + " " + String.valueOf(price);
+        return "\nMarmalade " + " " + String.valueOf(getSugar()) + " " +
+                String.valueOf(getWeight())+ " " +
+                String.valueOf(getPrice());
     }
 }
