@@ -14,6 +14,7 @@
         <module name="MyEnum" />
         <module name="PerfectNumbers" />
         <module name="Practice_6" />
+        <module name="Practice_7" />
         <module name="Project_1" />
         <module name="Pyramide" />
         <module name="RedAndBlackTree" />
@@ -34,6 +35,7 @@
       <module name="MyEnum" target="1.5" />
       <module name="PerfectNumbers" target="1.5" />
       <module name="Practice_6" target="1.7" />
+      <module name="Practice_7" target="1.7" />
       <module name="Project_1" target="1.7" />
       <module name="Pyramide" target="1.5" />
       <module name="RedAndBlackTree" target="1.5" />
