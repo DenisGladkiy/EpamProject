@@ -7,3 +7,14 @@ INFO - option 0 selected
 INFO - option 3 selected
 INFO - option 4 selected
 DEBUG - Cannot write to file afjlsf
+INFO - option 0 selected
+INFO - option 4 selected
+DEBUG - Cannot write to file afsdeewwwq
+INFO - option 0 selected
+INFO - option 1 selected
+INFO - option 4 selected
+INFO - Write object to file successful
+INFO - option 2 selected
+INFO - option 0 selected
+INFO - option 1 selected
+INFO - option 5 selected

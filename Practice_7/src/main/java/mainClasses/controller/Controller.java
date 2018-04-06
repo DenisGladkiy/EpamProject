@@ -24,11 +24,10 @@ public class Controller {
     public Controller(Storage storage){
         this.storage = storage;
         userInterface = new UserInterface(this);
-        loggerInit();
+        //loggerInit();
     }
 
     public String handle(String request) throws IOException {
-        String filepath;
         switch (request){
             case "0" :
                 requestedPatients = storage.showAllPatients();
@@ -50,25 +49,14 @@ public class Controller {
                 break;
             case "4":
                 logger.info("option 4 selected");
-                filepath = userInterface.askFilePath();
-                PatientWriter patientWriter = new PatientWriter(createFile(filepath));
-                if(requestedPatients == null){
-                    requestedPatients = storage.showAllPatients();
-                }
-                if(patientWriter.writePatients(requestedPatients)) {
-                    logger.info("Write object to file successful");
-                    return "OK";
-                }
-                break;
+                return writeToFile();
             case "5":
                 logger.info("option 5 selected");
-                filepath = userInterface.askFilePath();
-                PatientReader patientReader = new PatientReader(createFile(filepath));
-                requestedPatients = patientReader.readPatients();
+                requestedPatients = readFromFile();
                 break;
             default:
                 logger.debug("Unknown request");
-                System.out.println(Menu.UNKNOWN);
+                return Menu.UNKNOWN;
         }
         if(requestedPatients != null) {
             return Arrays.toString(requestedPatients);
@@ -97,15 +85,36 @@ public class Controller {
         return file;
     }
 
-    private void loggerInit(){
-        try {
-            FileAppender appender = new FileAppender(new SimpleLayout(), "log.txt");
-            logger.addAppender(appender);
-            logger.setLevel(Level.DEBUG);
-        } catch (IOException e) {
-            logger.error("logger init error");
-            e.printStackTrace();
-        }
-
+    private Patient[] readFromFile() throws IOException {
+        String filepath = userInterface.askFilePath();
+        PatientReader patientReader = new PatientReader(createFile(filepath));
+        return patientReader.readPatients();
     }
+
+    private String writeToFile() throws IOException {
+        String filepath = userInterface.askFilePath();
+        logger.trace(filepath);
+        PatientWriter patientWriter = new PatientWriter(createFile(filepath));
+        if(requestedPatients == null){
+            requestedPatients = storage.showAllPatients();
+        }
+        if(patientWriter.writePatients(requestedPatients)) {
+            logger.info("Write object to file successful");
+            return "OK";
+        }
+        return null;
+    }
+
+//    private void loggerInit(){
+//        try {
+//            ConsoleAppender cAppender = new ConsoleAppender(new SimpleLayout());
+//            FileAppender fAppender = new FileAppender(new SimpleLayout(), "log.txt");
+//            logger.addAppender(fAppender);
+//            logger.addAppender(cAppender);
+//            logger.setLevel(Level.INFO);
+//        } catch (IOException e) {
+//            logger.error("logger init error");
+//            e.printStackTrace();
+//        }
+//    }
 }
