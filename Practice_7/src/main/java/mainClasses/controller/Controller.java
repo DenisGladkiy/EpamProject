@@ -54,6 +54,10 @@ public class Controller {
                 logger.info("option 5 selected");
                 requestedPatients = readFromFile();
                 break;
+            case "6":
+                logger.info("option 6 selected");
+                showMenu();
+                break;
             default:
                 logger.debug("Unknown request");
                 return Menu.UNKNOWN;
@@ -67,6 +71,7 @@ public class Controller {
     }
 
     public void showMenu(){
+        System.out.println(userInterface.askLanguage());
         userInterface.makeMenu();
     }
 

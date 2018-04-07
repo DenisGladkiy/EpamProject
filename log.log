@@ -3,3 +3,24 @@ INFO - option 0 selected
 INFO - option 3 selected
 INFO - option 4 selected
 DEBUG - Cannot write to file adf
+INFO - request = 0
+INFO - option 0 selected
+INFO - request = sdfa
+DEBUG - Unknown request
+INFO - request = 0
+INFO - option 0 selected
+INFO - request = 1
+INFO - option 1 selected
+INFO - request = 4
+INFO - option 4 selected
+INFO - Write object to file successful
+INFO - request = 5
+INFO - option 5 selected
+INFO - request = 6
+INFO - option 6 selected
+INFO - request = 6
+INFO - option 6 selected
+INFO - request = 6
+INFO - option 6 selected
+INFO - request = 6
+INFO - option 6 selected

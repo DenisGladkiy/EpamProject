@@ -10,6 +10,7 @@ public interface Menu {
     String THREE = "Для сортировки общего списка пациентов по фамилии   '3'";
     String FOUR = "Для сохранения пациентов в файл                     '4'";
     String FIVE = "Для чтения пациентов из файла                       '5'";
+    String LANGUAGE = "Выберите язык        RU/UA/EN";
     String EXIT = "Для выхода введите 'exit'";
     String ASK_NUMBERS = "Введите диапазон номеров в формате от-до (пример 1-5)";
     String ASK_ILLNESS = "Введите диагноз";
