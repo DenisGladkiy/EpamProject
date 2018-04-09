@@ -3,6 +3,7 @@ package Reflection.createInstance;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * Created by Denis on 08.04.2018.
@@ -58,6 +59,20 @@ public class InstanceCreator {
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void setValue(ArithmeticOperation ao, double val){
+        Class<?> clazz = ao.getClass();
+        try {
+            Method method = clazz.getMethod("setValue", double.class);
+            method.invoke(ao, val);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
         }
     }
 }

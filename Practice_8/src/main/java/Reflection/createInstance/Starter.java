@@ -13,7 +13,8 @@ public class Starter {
         System.out.println("Reflection instance " + reflectionOperation);
         double refValue = ic.readPrivate(reflectionOperation);
         System.out.println("Read private field = " + refValue);
-        ic.setPrivate(reflectionOperation, 12.5);
-        System.out.println("Reflection instance after set private value = " + reflectionOperation);
+        //ic.setPrivate(reflectionOperation, 12.5);
+        ic.setValue(reflectionOperation, 15.5);
+        System.out.println("Reflection instance after invoke method = " + reflectionOperation);
     }
 }
