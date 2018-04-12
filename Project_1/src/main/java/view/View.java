@@ -12,6 +12,7 @@ public class View {
     }
 
     public void showMenu(){
+        System.out.println("");
         System.out.println(Menu.OPTION_1);
         System.out.println(Menu.OPTION_2);
         System.out.println(Menu.OPTION_3);

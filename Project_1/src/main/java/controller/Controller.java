@@ -1,11 +1,14 @@
 package controller;
 
 import model.CandyBox;
+import model.entity.Sweets;
 import utils.SweetsSugarComparator;
 import utils.modelHelper.CandyBoxCollector;
 import utils.viewHelper.ConsoleReader;
 import utils.viewHelper.Menu;
 import view.View;
+
+import java.util.Comparator;
 
 /**
  * Created by Denis on 01.04.2018.
@@ -24,31 +27,53 @@ public class Controller {
     }
 
     public void handleRequest(){
-        String line;
         view.showMenu();
-        do{
-            line = reader.readLine();
+        String line;
+        while(!(line = reader.readLine()).equalsIgnoreCase("exit")){
+            if(line.equals("")) continue;
             if(line.equals("1")){
-                view.reply(Menu.ASK_WEIGHT);
-                int weight = reader.readInt();
-                collector.collectCandyBox(weight);
-                view.reply(Menu.SUCCESS);
+                handleFilling();
+            }else if(line.equals("2")){
+                handleShowList();
+            }else if(line.equals("3")){
+                handleSort(new SweetsSugarComparator());
+            }else if(line.equals("4")){
+                handleSelection();
+            }else if(!line.equalsIgnoreCase("exit")){
+                view.reply(Menu.UNKNOWN);
             }
-            if(line.equals("2")){
-                view.reply(candyBox.getSweets().toString());
-                view.reply(String.valueOf(candyBox.getWeight()));
-            }
-            if(line.equals("3")){
-                candyBox.sortSweets(new SweetsSugarComparator());
-                view.reply(Menu.SUCCESS);
-            }
-            if(line.equals("4")){
-                view.reply(Menu.ASK_SUGAR);
-                line = reader.readLine();
-                String[] sugar = line.split("-");
-                view.reply(candyBox.selectBySugar(Integer.parseInt(sugar[0]), Integer.parseInt(sugar[1])).toString());
-            }
+            view.showMenu();
         }
-        while(!line.equalsIgnoreCase("exit"));
+    }
+
+    private void handleFilling(){
+        view.reply(Menu.ASK_WEIGHT);
+        int weight = reader.readInt();
+        if(weight > 0){
+            collector.collectCandyBox(weight);
+            view.reply(Menu.SUCCESS);
+        }else{
+            view.reply(Menu.INCORRECT);
+        }
+    }
+
+    private void handleShowList(){
+        view.reply(candyBox.getSweets().toString());
+        view.reply(String.valueOf(candyBox.getWeight()));
+    }
+
+    private void handleSort(Comparator<Sweets> comparator){
+        candyBox.sortSweets(comparator);
+        view.reply(Menu.SUCCESS);
+    }
+
+    private void handleSelection(){
+        view.reply(Menu.ASK_SUGAR);
+        int[] range = reader.readRange();
+        if(range[1] != 0) {
+            view.reply(candyBox.selectBySugar(range[0], range[1]).toString());
+        }else{
+            view.reply(Menu.WRONG_RANGE);
+        }
     }
 }

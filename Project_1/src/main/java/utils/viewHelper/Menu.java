@@ -12,4 +12,7 @@ public interface Menu {
     String ASK_WEIGHT = "Укажите вес в граммах";
     String ASK_SUGAR = "Укажите содержание сахара от-до";
     String SUCCESS = "ОК";
+    String UNKNOWN = "Неизвестный запрос";
+    String INCORRECT = "Требуется положительное целое число";
+    String WRONG_RANGE = "Требуется указать диапазон от-до";
 }
