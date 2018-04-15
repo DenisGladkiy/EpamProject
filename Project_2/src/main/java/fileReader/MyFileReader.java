@@ -30,11 +30,15 @@ public class MyFileReader {
 //        return line;
 //    }
 
-    public String readFile() throws IOException {
+    public String readFile(){
         StringBuilder builder = new StringBuilder();
         String line = null;
-        while ((line = bufferedReader.readLine()) != null) {
-            builder.append(line + " ");
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                builder.append(line + " ");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return builder.toString();
     }

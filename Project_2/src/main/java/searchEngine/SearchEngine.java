@@ -5,7 +5,6 @@ import fileReader.MyFileReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,27 +14,34 @@ import java.util.regex.Pattern;
  */
 public class SearchEngine {
     MyFileReader myFileReader;
+    String book;
 
     public SearchEngine(MyFileReader myFileReader){
         this.myFileReader = myFileReader;
     }
 
-    public void search() throws IOException {
-        String book = myFileReader.readFile();
-        for(String sentence : findSentences(book)){
+    public SearchEngine(String filePath){
+        myFileReader = new MyFileReader(filePath);
+        book = myFileReader.readFile();
+    }
+
+    public void search(String search) {
+        for(Sentence sentence : findSentences(book, search)){
             System.out.println(sentence);
         }
     }
 
-    private List<String> findSentences(String book){
-        List<String> sentences = new ArrayList<>();
-        //Pattern sentencePattern = Pattern.compile("\\.\\s+|!\\s+|\\?\\s+|\\t+");
+    private List<Sentence> findSentences(String book, String search){
+        Sentence sentence;
+        List<Sentence> sentences = new ArrayList<>();
         Pattern sentencePattern = Pattern.compile("[À-ßA-Z]+[^.!?\\t]+[.!?\\t]");
         Matcher matcher = sentencePattern.matcher(book);
         while (matcher.find()){
-            sentences.add(matcher.group());
+            sentence = new Sentence(matcher.group());
+            if(sentence.doesContain(search)){
+                sentences.add(sentence);
+            }
         }
-        //sentences = Arrays.asList(sentencePattern.split(book));
         return sentences;
     }
 }

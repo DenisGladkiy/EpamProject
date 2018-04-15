@@ -1,5 +1,7 @@
+import controller.Controller;
 import fileReader.MyFileReader;
 import searchEngine.SearchEngine;
+import view.View;
 
 import java.io.IOException;
 
@@ -8,7 +10,8 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        SearchEngine searchEngine = new SearchEngine(new MyFileReader("C:/JAVA/jsp.txt"));
-        searchEngine.search();
+        View view = new View();
+        Controller controller = new Controller(view);
+        controller.handle();
     }
 }
