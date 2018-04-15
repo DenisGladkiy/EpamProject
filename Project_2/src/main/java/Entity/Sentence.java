@@ -4,7 +4,7 @@ package Entity;
  * Created by Denis on 12.04.2018.
  */
 public class Sentence {
-    String sentence;
+    private String sentence;
 
     public Sentence(String sentence){
         this.sentence = sentence;
@@ -22,6 +22,7 @@ public class Sentence {
         return tempSentence.contains(tempSearch);
     }
 
+    @Override
     public String toString(){
         return sentence;
     }

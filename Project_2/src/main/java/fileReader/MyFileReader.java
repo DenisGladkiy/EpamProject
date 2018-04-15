@@ -22,14 +22,6 @@ public class MyFileReader {
         }
     }
 
-//    public String getNextLine() throws IOException {
-//        String line = null;
-//        if(bufferedReader != null){
-//            line = bufferedReader.readLine();
-//        }
-//        return line;
-//    }
-
     public String readFile(){
         StringBuilder builder = new StringBuilder();
         String line = null;

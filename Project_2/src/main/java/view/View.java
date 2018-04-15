@@ -1,15 +1,17 @@
 package view;
 
+import Entity.Sentence;
+
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * Created by Denis on 12.04.2018.
  */
 public class View {
-    Scanner scanner;
+    private Scanner scanner;
 
     public View(){
-        //System.out.println("Добро пожаловать в программу поиска текста");
         System.out.println(Menu.HELLO);
         scanner = new Scanner(System.in);
     }
@@ -22,5 +24,9 @@ public class View {
     public String askSearch(){
         System.out.println(Menu.TEXT);
         return scanner.nextLine();
+    }
+
+    public void showResult(List<Sentence> sentences){
+        sentences.forEach(sentence -> System.out.println(sentence));
     }
 }
