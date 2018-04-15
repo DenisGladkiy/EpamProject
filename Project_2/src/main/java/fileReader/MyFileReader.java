@@ -24,11 +24,13 @@ public class MyFileReader {
 
     public String readFile(){
         StringBuilder builder = new StringBuilder();
-        String line = null;
+        String line;
         try {
-            while ((line = bufferedReader.readLine()) != null) {
-                builder.append(line + " ");
-            }
+            if(bufferedReader != null) {
+                while ((line = bufferedReader.readLine()) != null) {
+                    builder.append(line + " ");
+                }
+            }else return null;
         } catch (IOException e) {
             e.printStackTrace();
         }

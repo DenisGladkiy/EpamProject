@@ -29,4 +29,8 @@ public class View {
     public void showResult(List<Sentence> sentences){
         sentences.forEach(sentence -> System.out.println(sentence));
     }
+
+    public void reply(String reply){
+        System.out.println(reply);
+    }
 }
