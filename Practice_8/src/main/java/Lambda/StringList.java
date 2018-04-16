@@ -1,5 +1,6 @@
 package Lambda;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class StringList {
     }
 
     private void init(){
-        strings = Arrays.asList("one", "two", "three", "four", "five", "six", "seven");
+        strings = new ArrayList<>(Arrays.asList("one", "two", "three", "four", "five", "six", "seven"));
     }
 
     public List<String> getStrings(){
