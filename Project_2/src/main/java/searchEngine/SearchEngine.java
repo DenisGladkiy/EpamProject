@@ -39,7 +39,7 @@ public class SearchEngine {
     private List<Sentence> findSentences(String search){
         Sentence sentence;
         List<Sentence> sentences = new ArrayList<>();
-        Pattern sentencePattern = Pattern.compile("[À-ßA-Z]+[^.!?\\t]+[.!?\\t]");
+        Pattern sentencePattern = Pattern.compile("\\s*[À-ßA-Z]+[^.!?\\t]+[.!?\\t]");
         Matcher matcher = sentencePattern.matcher(book);
         while (matcher.find()){
             sentence = new Sentence(matcher.group());
