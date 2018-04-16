@@ -28,7 +28,7 @@ public class MyFileReader {
         try {
             if(bufferedReader != null) {
                 while ((line = bufferedReader.readLine()) != null) {
-                    builder.append(line + " ");
+                    builder.append(line + "\n");
                 }
             }else return null;
         } catch (IOException e) {

@@ -26,9 +26,8 @@ public class TestSearchEngine {
 
     @Parameterized.Parameters
     public static Collection<Object[]> testData(){
-        return Arrays.asList(new Object[][]{{"web", 195},{"книга", 13},{"сценарий", 11},{"набор классов", 43},{"НАБОР-КЛАССОВ", 43}});
+        return Arrays.asList(new Object[][]{{"web-inf", 78},{"книга", 13},{"сценарий", 11},{"методы класса", 6},{"МЕТОДЫ-КЛАССА", 6}});
     }
-
 
     @BeforeClass
     public static void init(){
@@ -41,5 +40,4 @@ public class TestSearchEngine {
         System.out.println(words);
         assertEquals(searchResult, result);
     }
-
 }
