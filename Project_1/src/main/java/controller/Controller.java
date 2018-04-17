@@ -29,18 +29,25 @@ public class Controller {
     public void handleRequest(){
         view.showMenu();
         String line;
-        while(!(line = reader.readLine()).equalsIgnoreCase("exit")){
-            if(line.equals("")) continue;
-            if(line.equals("1")){
-                handleFilling();
-            }else if(line.equals("2")){
-                handleShowList();
-            }else if(line.equals("3")){
-                handleSort(new SweetsSugarComparator());
-            }else if(line.equals("4")){
-                handleSelection();
-            }else if(!line.equalsIgnoreCase("exit")){
-                view.reply(Menu.UNKNOWN);
+        while((line = reader.readLine()) != null){
+            switch (line){
+                case "": continue;
+                case "1":
+                    handleFilling();
+                    break;
+                case "2":
+                    handleShowList();
+                    break;
+                case "3":
+                    handleSort(new SweetsSugarComparator());
+                    break;
+                case "4":
+                    handleSelection();
+                    break;
+                case "exit":
+                    return;
+                default:
+                    view.reply(Menu.UNKNOWN);
             }
             view.showMenu();
         }

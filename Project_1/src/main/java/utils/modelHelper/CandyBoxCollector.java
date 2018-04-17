@@ -22,12 +22,6 @@ public class CandyBoxCollector {
         sweetsFactory = new SweetsFactory();
     }
 
-    public void collectCandyBox(){
-        candyBox.addSweetsCollection(produceSweets(20, CaramelCandy));
-        candyBox.addSweetsCollection(produceSweets(20, ChocolateCandy));
-        candyBox.addSweetsCollection(produceSweets(20, Marmalade));
-    }
-
     public void collectCandyBox(int weight){
         SweetsEnum[] sweetType = {CaramelCandy, ChocolateCandy, Marmalade};
         int index = 0;

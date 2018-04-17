@@ -23,10 +23,6 @@ public class CandyBox {
         weight += sweets.getSugar();
     }
 
-    public void addSweetsCollection(List<Sweets> addSweets){
-        sweetsBox.addAll(addSweets);
-    }
-
     public List<Sweets> getSweets(){
         return sweetsBox;
     }
