@@ -7,7 +7,7 @@ public class SimpleThread {
 
     public static void main(String[] args) {
         Runnable simpleRunnable = () -> {
-            for(int i = 10; i >=0 ; i--) {
+            for(int i = 10; i > 0 ; i--) {
                 System.out.println(i);
                 try {
                     Thread.sleep(1000);
