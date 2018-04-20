@@ -87,12 +87,8 @@ public class MapSynchro {
     }
 
     private void initBerrier(){
-        barrier = new CyclicBarrier(400, new Runnable() {
-            @Override
-            public void run() {
-                totalTime += System.currentTimeMillis() - startTime;
-            }
-        });
+        barrier = new CyclicBarrier(400, () ->
+                totalTime += System.currentTimeMillis() - startTime);
     }
 
     public int getAverageTime(){
