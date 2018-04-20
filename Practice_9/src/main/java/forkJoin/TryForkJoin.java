@@ -1,4 +1,4 @@
-package forkFoin;
+package forkJoin;
 
 import java.util.Arrays;
 import java.util.Random;
