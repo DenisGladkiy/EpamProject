@@ -1,7 +1,7 @@
 package controller;
 
 import model.Shop;
-import view.View;
+import mvc.view.View;
 
 /**
  * Created by Denis on 14.03.2018.

@@ -7,7 +7,7 @@ import model.entity.Shape;
 import model.entity.Triangle;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import view.View;
+import mvc.view.View;
 import static org.junit.Assert.*;
 
 /**

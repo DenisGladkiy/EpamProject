@@ -2,7 +2,7 @@ import controller.Controller;
 import model.Model;
 import controller.ModelHandler;
 import utils.ShapesFiller;
-import view.View;
+import mvc.view.View;
 
 /**
  * Created by Denis on 08.03.2018.

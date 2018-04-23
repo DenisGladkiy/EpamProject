@@ -1,4 +1,4 @@
-package view;
+package mvc.view;
 
 /**
  * Created by Denis on 01.04.2018.

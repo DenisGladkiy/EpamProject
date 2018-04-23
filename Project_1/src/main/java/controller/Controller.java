@@ -6,7 +6,7 @@ import utils.SweetsSugarComparator;
 import utils.modelHelper.CandyBoxCollector;
 import utils.viewHelper.ConsoleReader;
 import utils.viewHelper.Menu;
-import view.View;
+import mvc.view.View;
 
 import java.util.Comparator;
 

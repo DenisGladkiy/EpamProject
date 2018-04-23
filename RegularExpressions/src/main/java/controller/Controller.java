@@ -4,8 +4,8 @@ import exception.FormatException;
 import model.Model;
 import model.Student;
 import utils.StudentParser;
-import view.ConsoleReader;
-import view.ConsoleWriter;
+import mvc.view.ConsoleReader;
+import mvc.view.ConsoleWriter;
 
 
 /**

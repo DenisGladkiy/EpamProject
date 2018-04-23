@@ -1,4 +1,4 @@
-package view;
+package mvc.view;
 
 import java.util.Scanner;
 

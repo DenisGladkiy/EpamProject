@@ -3,8 +3,8 @@ package controller;
 import Entity.Sentence;
 import org.apache.log4j.Logger;
 import searchEngine.SearchEngine;
-import view.Menu;
-import view.View;
+import mvc.view.Menu;
+import mvc.view.View;
 
 import java.io.File;
 import java.util.List;

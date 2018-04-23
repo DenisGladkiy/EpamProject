@@ -1,7 +1,5 @@
 import controller.Controller;
-import fileReader.MyFileReader;
-import searchEngine.SearchEngine;
-import view.View;
+import mvc.view.View;
 
 import java.io.IOException;
 

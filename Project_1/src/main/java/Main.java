@@ -1,7 +1,6 @@
 import controller.Controller;
 import model.CandyBox;
-import utils.modelHelper.CandyBoxCollector;
-import view.View;
+import mvc.view.View;
 
 /**
  * Created by Denis on 02.04.2018.
