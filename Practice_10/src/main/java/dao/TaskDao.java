@@ -37,7 +37,16 @@ public class TaskDao implements AbstractDao<Task> {
     }
 
     @Override
-    public void addByForeignKey(Task task) {
+    public void addByForeignKey(int number) {
+    }
+
+    public void addTaskForEmployee(String description, int employee){
+        String query = "INSERT INTO Task(Description, EmployeeNumber) VALUES (\"" + description + "\"," + employee + ")";
+        try (Statement statement = connection.createStatement()){
+            statement.execute(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -46,9 +55,8 @@ public class TaskDao implements AbstractDao<Task> {
 
     private List<Task> getTask(String query){
         ArrayList<Task> tasks = new ArrayList<>();
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
+        try (Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery(query)){
             while (rs.next()){
                 tasks.add(new Task(rs.getInt(1), rs.getString(2), rs.getInt(3)));
             }

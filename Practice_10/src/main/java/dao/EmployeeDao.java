@@ -37,17 +37,23 @@ public class EmployeeDao implements AbstractDao<Employee> {
     }
 
     @Override
-    public void addByForeignKey(Employee employee) {
+    public void addByForeignKey(int key) {
     }
 
     @Override
-    public void removeById(int primaryKey) { }
+    public void removeById(int primaryKey) {
+        String query = "delete from employee where Employee.number=" + primaryKey;
+        try (Statement statement = connection.createStatement()){
+            statement.execute(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     private List<Employee> getEmployee(String query){
         ArrayList<Employee> employees = new ArrayList<>();
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(query);
+        try(Statement statement = connection.createStatement();
+                    ResultSet rs = statement.executeQuery(query)) {
             while (rs.next()){
                 employees.add(new Employee(rs.getInt(1),
                         rs.getString(2),

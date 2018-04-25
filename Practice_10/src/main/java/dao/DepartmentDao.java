@@ -37,18 +37,17 @@ public class DepartmentDao implements AbstractDao<Department> {
     }
 
     @Override
-    public void addByForeignKey(Department department) {
+    public void addByForeignKey(int key) {
     }
 
     @Override
     public void removeById(int primaryKey) {
     }
 
-    private List<Department> getDepartment(String employee){
+    private List<Department> getDepartment(String query){
         ArrayList<Department> departments = new ArrayList<>();
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(employee);
+        try (Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery(query)){
             while (rs.next()){
                 departments.add(new Department(rs.getInt(1), rs.getString(2), rs.getString(3)));
             }

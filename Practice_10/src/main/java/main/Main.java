@@ -5,6 +5,7 @@ import dao.AbstractDao;
 import dao.DepartmentDao;
 import dao.EmployeeDao;
 import dao.TaskDao;
+import dao.entity.Task;
 
 import java.sql.Connection;
 
@@ -23,7 +24,9 @@ public class Main {
         System.out.println(taskDao.getAll());
         System.out.println("By dep " + empDao.getByForeignKey(2));
         System.out.println(taskDao.getByForeignKey(1));
-
-
+        ((TaskDao) taskDao).addTaskForEmployee("New task 2", 2);
+        System.out.println(taskDao.getAll());
+        empDao.removeById(1);
+        System.out.println(empDao.getAll());
     }
 }

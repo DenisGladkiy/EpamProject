@@ -14,7 +14,7 @@ public interface AbstractDao<T extends Entity> {
 
     T getById(int primaryKey);
 
-    void addByForeignKey(T t);
+    void addByForeignKey(int fk);
 
     void removeById(int primaryKey);
 }
