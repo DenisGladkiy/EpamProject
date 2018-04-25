@@ -3,6 +3,10 @@ package dao;
 import dao.entity.Employee;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +21,14 @@ public class EmployeeDao implements AbstractDao<Employee> {
 
     @Override
     public List<Employee> getAll() {
-        return null;
+       String query = "SELECT * FROM EMPLOYEE";
+       return getEmployee(query);
+    }
+
+    @Override
+    public List<Employee> getByForeignKey(int depNumber) {
+        String query = "SELECT * FROM EMPLOYEE WHERE DEPNUMBER=" + depNumber;
+        return getEmployee(query);
     }
 
     @Override
@@ -26,7 +37,27 @@ public class EmployeeDao implements AbstractDao<Employee> {
     }
 
     @Override
-    public void removeById(int primaryKey) {
+    public void addByForeignKey(Employee employee) {
+    }
 
+    @Override
+    public void removeById(int primaryKey) { }
+
+    private List<Employee> getEmployee(String query){
+        ArrayList<Employee> employees = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()){
+                employees.add(new Employee(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employees;
     }
 }

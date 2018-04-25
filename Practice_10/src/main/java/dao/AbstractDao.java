@@ -10,7 +10,11 @@ import java.util.List;
 public interface AbstractDao<T extends Entity> {
     List<T> getAll();
 
+    List<T> getByForeignKey(int key);
+
     T getById(int primaryKey);
+
+    void addByForeignKey(T t);
 
     void removeById(int primaryKey);
 }

@@ -33,14 +33,14 @@
     <bytecodeTargetLevel>
       <module name="EnglishTranslater" target="1.5" />
       <module name="epamPractice" target="1.5" />
-      <module name="FinalProject" target="1.8" />
+      <module name="FinalProject" target="1.5" />
       <module name="Hospital" target="1.7" />
       <module name="InnerClassResearch" target="1.7" />
       <module name="ListAndSet" target="1.7" />
       <module name="MatrixRotate" target="1.5" />
       <module name="MyEnum" target="1.5" />
       <module name="PerfectNumbers" target="1.5" />
-      <module name="Practice_10" target="1.8" />
+      <module name="Practice_10" target="1.7" />
       <module name="Practice_6" target="1.7" />
       <module name="Practice_7" target="1.7" />
       <module name="Practice_8" target="1.8" />

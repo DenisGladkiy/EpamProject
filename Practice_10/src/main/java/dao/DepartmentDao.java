@@ -22,17 +22,13 @@ public class DepartmentDao implements AbstractDao<Department> {
 
     @Override
     public List<Department> getAll() {
-        ArrayList<Department> departments = new ArrayList<>();
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("select * from departments");
-            while (rs.next()){
-                departments.add(new Department(rs.getInt(1), rs.getString(2), rs.getString(3)));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return departments;
+        String query = "SELECT * FROM DEPARTMENTS";
+        return getDepartment(query);
+    }
+
+    @Override
+    public List<Department> getByForeignKey(int key) {
+        return null;
     }
 
     @Override
@@ -41,7 +37,24 @@ public class DepartmentDao implements AbstractDao<Department> {
     }
 
     @Override
-    public void removeById(int primaryKey) {
+    public void addByForeignKey(Department department) {
+    }
 
+    @Override
+    public void removeById(int primaryKey) {
+    }
+
+    private List<Department> getDepartment(String employee){
+        ArrayList<Department> departments = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(employee);
+            while (rs.next()){
+                departments.add(new Department(rs.getInt(1), rs.getString(2), rs.getString(3)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return departments;
     }
 }
