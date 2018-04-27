@@ -1,6 +1,5 @@
 package mvc.controller;
 
-import mvc.model.entity.Activity;
 import mvc.model.entity.User;
 
 /**
@@ -11,11 +10,4 @@ public interface Controller {
     User createAccount(String login, String password);
 
     boolean logIn(String login, String password);
-
-    Activity proposeActivity();
-
-    void askForRemoval(int activityId);
-
-    void setWorkingTime(int activityId, int time);
-
 }
