@@ -17,4 +17,6 @@ public interface AbstractDao<T extends Entity> {
     void addByForeignKey(int fk);
 
     void removeById(int primaryKey);
+
+    void closeConnection();
 }

@@ -5,11 +5,11 @@ import java.util.List;
 /**
  * Created by Denis on 27.04.2018.
  */
-public interface AbstractDao<T> {
+public interface AbstractDao<T, K> {
 
     List<T> getAll();
 
-    T getById(int id);
+    T getById(K id);
 
     boolean insert(T t);
 

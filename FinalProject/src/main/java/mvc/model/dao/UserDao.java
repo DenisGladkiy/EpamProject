@@ -2,17 +2,23 @@ package mvc.model.dao;
 
 import mvc.model.entity.User;
 
+import java.sql.Connection;
 import java.util.List;
 
 /**
  * Created by Denis on 27.04.2018.
  */
-public class UserDao implements AbstractDao<User> {
+public class UserDao implements AbstractDao<User, Integer> {
+    private Connection connection;
+
+    public UserDao(Connection connection){
+        this.connection = connection;
+    }
     public List<User> getAll() {
         return null;
     }
 
-    public User getById(int id) {
+    public User getById(Integer id) {
         return null;
     }
 

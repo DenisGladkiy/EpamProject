@@ -12,10 +12,12 @@ public class Activity {
     private String description;
     private Date creationDate;
     private Date deadLine;
+    private Date workingTime;
     private int userId;
-    private int time;
     private boolean addRequest;
     private boolean removeRequest;
+
+    public Activity(){}
 
     public Activity(int id, String name) {
         this.id = id;
@@ -38,12 +40,12 @@ public class Activity {
         this.description = description;
     }
 
-    public int getTime() {
-        return time;
+    public Date getTime() {
+        return workingTime;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public void setTime(Date workingTime) {
+        this.workingTime = workingTime;
     }
 
     public boolean isAddRequest() {
@@ -84,5 +86,14 @@ public class Activity {
 
     public void setDeadLine(Date deadLine) {
         this.deadLine = deadLine;
+    }
+
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
