@@ -24,6 +24,7 @@
       <module fileurl="file://$PROJECT_DIR$/Train/Train.iml" filepath="$PROJECT_DIR$/Train/Train.iml" />
       <module fileurl="file://$PROJECT_DIR$/Translater/Translater.iml" filepath="$PROJECT_DIR$/Translater/Translater.iml" />
       <module fileurl="file://$PROJECT_DIR$/UnitTest/UnitTest.iml" filepath="$PROJECT_DIR$/UnitTest/UnitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XmlJsonParser/XmlJsonParser.iml" filepath="$PROJECT_DIR$/XmlJsonParser/XmlJsonParser.iml" />
       <module fileurl="file://$PROJECT_DIR$/epamPractice.iml" filepath="$PROJECT_DIR$/epamPractice.iml" />
     </modules>
   </component>

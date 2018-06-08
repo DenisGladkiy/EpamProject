@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog>
+    <notebook>
+        <person id="1">
+            <name>Alex</name>
+            <address>Pushkina av. 1</address>
+            <cash>8000</cash>
+            <education>sa</education>
+        </person>
+        <person id="2">
+            <name>Dima</name>
+            <address>Long st. 100</address>
+            <cash>15000</cash>
+            <education>sa</education>
+        </person>
+        <person id="3">
+            <name>Yura</name>
+            <address>Short st. 10</address>
+            <cash>9999</cash>
+            <education>sa</education>
+        </person>
+        <person id="4">
+            <name>Vladimir</name>
+            <address>Round st. 100</address>
+            <cash>22000</cash>
+            <education>sa</education>
+        </person>
+        <person id="5">
+            <name>John</name>
+            <address>Far st. 9</address>
+            <cash>7000</cash>
+            <education>sa</education>
+        </person>
+    </notebook>
+</catalog>

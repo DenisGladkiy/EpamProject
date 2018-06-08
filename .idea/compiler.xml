@@ -28,12 +28,13 @@
         <module name="Train" />
         <module name="Translater" />
         <module name="UnitTest" />
+        <module name="XmlJsonParser" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="EnglishTranslater" target="1.5" />
       <module name="epamPractice" target="1.5" />
-      <module name="FinalProject" target="1.8" />
+      <module name="FinalProject" target="1.5" />
       <module name="Hospital" target="1.7" />
       <module name="InnerClassResearch" target="1.7" />
       <module name="ListAndSet" target="1.7" />
@@ -54,6 +55,7 @@
       <module name="Train" target="1.5" />
       <module name="Translater" target="1.5" />
       <module name="UnitTest" target="1.5" />
+      <module name="XmlJsonParser" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

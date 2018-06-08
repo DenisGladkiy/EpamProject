@@ -3,6 +3,7 @@ package utils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -14,10 +15,11 @@ public class DbPropertyManager {
     private Properties property;
 
     public Properties getProperty(){
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        InputStream input = classLoader.getResourceAsStream("dbconfig.properties");
         try {
-            fis = new FileInputStream(PROPERTY_FILE);
             property = new Properties();
-            property.load(fis);
+            property.load(input);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
