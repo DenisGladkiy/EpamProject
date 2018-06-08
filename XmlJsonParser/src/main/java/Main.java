@@ -4,20 +4,23 @@ import parser.DocumentParser;
 import parser.XmlParser;
 import xml.XmlGenerator;
 
-import javax.swing.text.html.parser.Parser;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by Denis on 08.06.2018.
  */
 public class Main {
+    private static final String RESULT_FILE_NAME = "selectedPeople.txt";
+    private static final String SOURCE_XML_FILE = "catalog.xml";
+
     public static void main(String[] args) {
         generateXmlFile();
-        Catalog catalog = readXmlFile("catalog.xml");
+        Catalog catalog = readXmlFile(SOURCE_XML_FILE);
         selectByCash(catalog, 10000);
     }
 
@@ -38,19 +41,31 @@ public class Main {
     }
 
     private static void selectByCash(Catalog catalog, int cash){
+        File file = new File(RESULT_FILE_NAME);
+        try {
+            prepareFile(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         List<Person> persons = catalog.getNotebook().getPersons();
         persons.stream().
                 filter(p -> p.getCash() >= cash).
-                        collect(Collectors.toList()).forEach((p) -> {writeToFile("selectedPeople.txt", p);
+                        collect(Collectors.toList()).forEach((p) -> {writeToFile(file, p);
                                                                     System.out.println(p);});
     }
 
-    private static void writeToFile(String fileName, Person person){
-        File file = new File(fileName);
+    private static void prepareFile(File file) throws IOException {
+        if (!file.exists()) {
+            file.createNewFile();
+        } else {
+            PrintWriter pw = new PrintWriter(file);
+            pw.println("");
+            pw.close();
+        }
+    }
+
+    private static void writeToFile(File file, Person person){
         try {
-            if(!file.exists()){
-                file.createNewFile();
-            }
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
             PrintWriter pw = new PrintWriter(writer);
             pw.println(person);
