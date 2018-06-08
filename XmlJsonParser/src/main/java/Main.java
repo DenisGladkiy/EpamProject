@@ -1,5 +1,6 @@
 import entity.Catalog;
 import entity.Person;
+import json.JsonRetriever;
 import parser.DocumentParser;
 import parser.XmlParser;
 import xml.XmlGenerator;
@@ -9,7 +10,6 @@ import javax.xml.transform.TransformerException;
 import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Created by Denis on 08.06.2018.
@@ -17,11 +17,13 @@ import java.util.stream.Stream;
 public class Main {
     private static final String RESULT_FILE_NAME = "selectedPeople.txt";
     private static final String SOURCE_XML_FILE = "catalog.xml";
+    private static final String URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
 
     public static void main(String[] args) {
         generateXmlFile();
         Catalog catalog = readXmlFile(SOURCE_XML_FILE);
         selectByCash(catalog, 10000);
+        new JsonRetriever().retrieveJson(URL);
     }
 
     private static void generateXmlFile(){
