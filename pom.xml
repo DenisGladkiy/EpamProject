@@ -33,6 +33,13 @@
         <module>Practice_10</module>
         <module>XmlJsonParser</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

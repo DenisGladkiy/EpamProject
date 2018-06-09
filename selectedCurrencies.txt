@@ -1,0 +1,3 @@
+Currency{name='Долар США', rate=26.171679}
+Currency{name='Євро', rate=30.976799}
+Currency{name='Російський рубль', rate=0.4234}

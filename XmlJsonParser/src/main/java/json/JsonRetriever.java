@@ -1,5 +1,8 @@
 package json;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -14,7 +17,6 @@ public class JsonRetriever {
         String jsonText = null;
         try (InputStream inputStream = new URL(url).openStream()){
             jsonText = readJson(inputStream);
-            System.out.println(jsonText);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,3 +1,2 @@
-
 Person{id=2, name='Dima', address='Long st. 100', cash=15000, education='sa'}
 Person{id=4, name='Vladimir', address='Round st. 100', cash=22000, education='sa'}

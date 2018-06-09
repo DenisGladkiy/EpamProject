@@ -6,13 +6,15 @@ package entity;
 public class Currency {
     private String name;
     private float rate;
+    private String id;
 
     public Currency() {
     }
 
-    public Currency(String name, float rate) {
+    public Currency(String name, float rate, String id) {
         this.name = name;
         this.rate = rate;
+        this.id = id;
     }
 
     public String getName() {
@@ -29,5 +31,21 @@ public class Currency {
 
     public void setRate(float rate) {
         this.rate = rate;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Currency{" +
+                "name='" + name + '\'' +
+                ", rate=" + rate +
+                '}';
     }
 }
