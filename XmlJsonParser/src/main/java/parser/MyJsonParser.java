@@ -3,6 +3,7 @@ package parser;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import entity.Currency;
 import json.JsonRetriever;
 
@@ -12,7 +13,7 @@ import java.util.List;
 /**
  * Created by Denys_Hladkyi on 6/8/2018.
  */
-public class JsonParser implements DocumentParser<List<Currency>, String> {
+public class MyJsonParser implements DocumentParser<List<Currency>, String> {
 
     @Override
     public List<Currency> parseDocument(String url) {
@@ -24,7 +25,7 @@ public class JsonParser implements DocumentParser<List<Currency>, String> {
     }
 
     private List<Currency> getCurrency(String json){
-        JsonArray jsonArray = new com.google.gson.JsonParser().parse(json).getAsJsonArray();
+        JsonArray jsonArray = new JsonParser().parse(json).getAsJsonArray();
         List<Currency> currencies = new ArrayList<>();
         JsonObject object;
         for(JsonElement jElement : jsonArray){

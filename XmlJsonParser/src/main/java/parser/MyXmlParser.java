@@ -15,8 +15,7 @@ import java.io.IOException;
 /**
  * Created by Denis on 08.06.2018.
  */
-public class XmlParser implements DocumentParser<Catalog, String> {
-    private Document domDocument;
+public class MyXmlParser implements DocumentParser<Catalog, String> {
 
     @Override
     public Catalog parseDocument(String fileName) {
@@ -26,6 +25,7 @@ public class XmlParser implements DocumentParser<Catalog, String> {
 
     private Catalog parseFile(File file){
         Catalog catalog = null;
+        Document domDocument = null;
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = null;
         try {

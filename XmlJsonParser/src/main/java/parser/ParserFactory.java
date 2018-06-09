@@ -8,9 +8,9 @@ public class ParserFactory {
 
     public DocumentParser getParser(String strFormat){
         if(Format.valueOf(strFormat).equals(Format.JSON)){
-            return new JsonParser();
+            return new MyJsonParser();
         }else if(Format.valueOf(strFormat).equals(Format.XML)){
-            return new XmlParser();
+            return new MyXmlParser();
         }else {
             throw new RuntimeException("Unknown parser format");
         }

@@ -20,16 +20,49 @@ public class Executor {
     private static final String JSON_RESULT_FILE = "selectedCurrencies.txt";
     private static final String SOURCE_XML_FILE = "catalog.xml";
     private static final String URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
+    private DocumentParser<Catalog, String> xmlParser;
+    private DocumentParser<List<Currency>, String> jsonParser;
+    private File xmlResultFile;
+    private File jsonResultFile;
 
     public void execute(){
-        ParserFactory factory = new ParserFactory();
-        DocumentParser<Catalog, String> xmlParser = factory.getParser("XML");
-        DocumentParser<List<Currency>, String> jsonParser = factory.getParser("JSON");
-        generateXmlFile();
+        init();
         Catalog catalog = xmlParser.parseDocument(SOURCE_XML_FILE);
-        selectByCash(catalog, 10000);
+        List<Person> selectedPerson = selectByCash(catalog, 10000);
+        writeToFile(xmlResultFile, selectedPerson);
+        writeToConsole(selectedPerson);
         List<Currency> currencies = jsonParser.parseDocument(URL);
-        selectByCurrencyId(currencies, "USD","EUR","RUB");
+        List<Currency> selectedCurrency =  selectByCurrencyId(currencies, "USD","EUR","RUB");
+        writeToFile(jsonResultFile, selectedCurrency);
+        readFileToConsole(jsonResultFile);
+    }
+
+    public List<Person> selectByCash(Catalog catalog, int cash){
+        List<Person> persons = catalog.getNotebook().getPersons();
+        List<Person> selectedPerson = persons.stream().filter(p -> p.getCash() >= cash).
+                collect(Collectors.toList());
+        return selectedPerson;
+    }
+
+    public List<Currency> selectByCurrencyId(List<Currency> currencies, String...currId){
+        List<Currency> selectedCurrency = currencies.stream().filter(currency -> isRequired(currency, currId)).
+                collect(Collectors.toList());
+        return selectedCurrency;
+    }
+
+    private void init(){
+        ParserFactory factory = new ParserFactory();
+        xmlParser = factory.getParser("XML");
+        jsonParser = factory.getParser("JSON");
+        generateXmlFile();
+        xmlResultFile = new File(XML_RESULT_FILE);
+        jsonResultFile = new File(JSON_RESULT_FILE);
+        try {
+            prepareFile(xmlResultFile);
+            prepareFile(jsonResultFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void generateXmlFile(){
@@ -41,32 +74,6 @@ public class Executor {
         } catch (TransformerException e) {
             e.printStackTrace();
         }
-    }
-
-    private void selectByCash(Catalog catalog, int cash){
-        File file = new File(XML_RESULT_FILE);
-        try {
-            prepareFile(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        List<Person> persons = catalog.getNotebook().getPersons();
-        persons.stream().
-                filter(p -> p.getCash() >= cash).
-                collect(Collectors.toList()).forEach(p -> {writeToFile(file, p);
-            System.out.println(p);});
-    }
-
-    private void selectByCurrencyId(List<Currency> currencies, String...currId){
-        File file = new File(JSON_RESULT_FILE);
-        try {
-            prepareFile(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        currencies.stream().filter(currency -> isRequired(currency, currId)).
-                collect(Collectors.toList()).forEach(currency -> {writeToFile(file, currency);});
-        readFileToConsole(file);
     }
 
     private void readFileToConsole(File file){
@@ -98,14 +105,18 @@ public class Executor {
         }
     }
 
-    private <T> void writeToFile(File file, T object){
+    private <T> void writeToFile(File file, List<T> list){
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
             PrintWriter pw = new PrintWriter(writer);
-            pw.println(object);
+            list.forEach(t -> pw.println(t));
             pw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private <T> void writeToConsole(List<T> list){
+        list.forEach(t -> System.out.println(t));
     }
 }
